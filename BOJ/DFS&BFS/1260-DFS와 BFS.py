@@ -8,8 +8,6 @@ N, M, V = map(int, sys.stdin.readline().split())
 tmp = []
 graph = [[] for _ in range(N+1)]
 
-# for i in range(M):
-#     tmp.append(list(map(int, sys.stdin.readline())))
 tmp = [list(map(int, sys.stdin.readline().split())) for _ in range(M)]
 for i in tmp:
     x, y = i[0], i[1]
@@ -17,7 +15,6 @@ for i in tmp:
     graph[y].append(x)
 for tmp in graph:
     tmp.sort()
-
 
 # BFS
 queueB = Queue()
@@ -29,7 +26,6 @@ while not queueB.empty():
         if tmp not in visitedB:
             queueB.put(tmp)
             visitedB.append(tmp)
-
 
 # DFS
 visitedD = []

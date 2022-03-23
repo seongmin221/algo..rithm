@@ -1,7 +1,3 @@
-# ( 는 +1로, ) 는 -1로 해서 
-# 첫 문자열부터 끝까지 더할때 0보다 작은 순간이 없고,
-# 마지막에 합이 0이면 YES 아니면 NO
-
 import sys
 
 t = int(sys.stdin.readline())
