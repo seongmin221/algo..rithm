@@ -1,20 +1,14 @@
-from os import TMP_MAX
 import sys
 n, k = map(int, sys.stdin.readline().split())
 
-tmp, tmp1, tmp2 = 1, 1, 1
-
-if k < n/2:
-    for _ in range(k):
-        tmp1 = tmp1 * n
-        tmp2 = tmp2 * k
-        n -= 1
-        k -= 1
-else:
-    tmp = n-k
-    for _ in range(n-k):
-        tmp1 = tmp1 * n
-        tmp2 = tmp2 * tmp
-        n -= 1
-        tmp -= 1
-print(int(tmp1/tmp2)%10007)
+dp = [[1 for _ in range(1001)] for _ in range(1001)]
+def binominal(n, k):
+    for i in range(1,n+1):
+        for j in range(1, n+1):
+            if i == j or i == 1:
+                dp[i][j] = 1
+            else:
+                dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+    print(dp[n][k]%10007)
+binominal(n,k)
+    
