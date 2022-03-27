@@ -1,21 +1,31 @@
-from re import S
 import sys
-from queue import Queue
+from collections import deque
 
-N = int(sys.stdin.readline().rstrip())
+input = sys.stdin.readline
+
+N = int(input().rstrip())
 graph = [[0 for _ in range(N+2)] for _ in range(N+2)]
 tmp = [[0 for _ in range(N)] for _ in range(N)]
 for i in range(N):
     tmp[i] = list(map(int, sys.stdin.readline().rstrip()))
     for j in range(N):
-        graph[i+1][j+1] = tmp[i][j] 
+        graph[i+1][j+1] = tmp[i][j]
 
-# (x,y)는 1인 포인트를 찾아서 입력값으로 넣기
-c = []
-def explore(x, y):
+# search 1
+def search():
+    x = 1
+    for _ in range(N):
+        if 1 in graph[x]:
+            y = graph[x].index(1)
+            return (x,y)
+        else:
+            x += 1
+    return (-1, -1)
+
+
+def explore(x,y):
+    count[index] += 1
     graph[x][y] = 0
-    global count
-    count += 1
     if graph[x+1][y]:
         explore(x+1, y)
     if graph[x][y+1]:
@@ -25,17 +35,18 @@ def explore(x, y):
     if graph[x][y-1]:
         explore(x, y-1)
 
-def findInit(graph): 
-    global count
-    for i in range(N):
-        if 1 in graph[i]:
-            count = 0
-            j = graph[i].index(1)
-            explore(i,j)
-            c.append(count)
-            
-findInit(graph)
-print(len(c))
-c.sort()
-for i in range(len(c)):
-    print(c[i])
+count = []
+index = 0
+x = 1
+while True:
+    x, y = search()
+    if x == -1:
+        break
+    count.append(0)
+    explore(x,y)
+    index += 1
+
+count.sort()
+print(len(count))
+for i in range(len(count)):
+    print(count[i])
