@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  1000-A+B.swift
 //  Swift_BOJ
 //
 //  Created by 이성민 on 2023/03/03.
