@@ -7,9 +7,18 @@
 
 import Foundation
 
-var nums = readLine()!.components(separatedBy: " ").map { Int($0)! }
-print(nums[0] + nums[1])
-print(nums[0] - nums[1])
-print(nums[0] * nums[1])
-print(nums[0] / nums[1])
-print(nums[0] % nums[1])
+var time = readLine()!.components(separatedBy: " ").map { Int($0)! }
+var fixedTime = [time[0], time[1]]
+
+if time[1] < 45 && time[0] == 0 {
+    fixedTime[0] = 23
+    fixedTime[1] = fixedTime[1] + 15
+} else if time[1] < 45 && time[0] != 0 {
+    fixedTime[0] = fixedTime[0] - 1
+    fixedTime[1] = fixedTime[1] + 15
+} else {
+    fixedTime[0] = fixedTime[0]
+    fixedTime[1] = fixedTime[1] - 45
+}
+
+print("\(fixedTime[0]) \(fixedTime[1])")
