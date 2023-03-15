@@ -7,6 +7,19 @@
 
 import Foundation
 
-var cnt = Int(readLine()!)!
-var nums: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
-print("\(nums.min()!) \(nums.max()!)")
+public func progressTime(_ closure: () -> ()) -> TimeInterval {
+    let start = CFAbsoluteTimeGetCurrent()
+    closure()
+    let diff = CFAbsoluteTimeGetCurrent() - start
+    return (diff)
+}
+
+print(progressTime {
+    var cnt = Int(readLine()!)!
+//    var nums: [Int] = readLine()!.split(separator: " ").map { Int($0)! }
+    var nums: [Int] = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
+    print("\(nums.min()!) \(nums.max()!)")
+})
+//var cnt = Int(readLine()!)!
+//var nums: [Int] = readLine()!.split(separator: " ").map { Int(String($0))! }
+//print("\(nums.min()!) \(nums.max()!)")
