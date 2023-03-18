@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E953A9329C1AF8F0073302F /* 최빈값 구하기.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E953A9229C1AF8F0073302F /* 최빈값 구하기.swift */; };
-		3E953A9A29C44D630073302F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E953A9929C44D630073302F /* main.swift */; };
+		3E953A9C29C5934E0073302F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E953A9B29C5934E0073302F /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,8 @@
 		3E953A8829C19F810073302F /* Swift_programmers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Swift_programmers; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E953A8B29C19F810073302F /* 다항식 더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다항식 더하기.swift"; sourceTree = "<group>"; };
 		3E953A9229C1AF8F0073302F /* 최빈값 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최빈값 구하기.swift"; sourceTree = "<group>"; };
-		3E953A9929C44D630073302F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E953A9929C44D630073302F /* 다음에 올 숫자.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다음에 올 숫자.swift"; sourceTree = "<group>"; };
+		3E953A9B29C5934E0073302F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,8 @@
 			children = (
 				3E953A8B29C19F810073302F /* 다항식 더하기.swift */,
 				3E953A9229C1AF8F0073302F /* 최빈값 구하기.swift */,
-				3E953A9929C44D630073302F /* main.swift */,
+				3E953A9929C44D630073302F /* 다음에 올 숫자.swift */,
+				3E953A9B29C5934E0073302F /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -99,6 +100,7 @@
 				TargetAttributes = {
 					3E953A8729C19F810073302F = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -125,8 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E953A9A29C44D630073302F /* main.swift in Sources */,
-				3E953A9329C1AF8F0073302F /* 최빈값 구하기.swift in Sources */,
+				3E953A9C29C5934E0073302F /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +250,17 @@
 		3E953A9029C19F810073302F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -260,9 +268,15 @@
 		3E953A9129C19F810073302F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
