@@ -23,7 +23,27 @@ import Foundation
 // 3~5,10,12,17~21,23~25 실패
 
 func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
-    
+    var maxStud = 0
+    var students: [Int] = Array(repeating: 0, count: n)
+    for stud in lost {
+        students[stud-1] += -1
+    }
+    for stud in reserve {
+        students[stud-1] += 1
+    }
+    for i in 0..<n-1 {
+        if students[i] + students[i+1] == 0 {
+            students[i] = 0
+            students[i+1] = 0
+        }
+    }
+    print(students)
+    for stud in students {
+        if stud >= 0 {
+            maxStud += 1
+        }
+    }
+    return maxStud
 }
 
 print(solution(3, [3], [1]))
