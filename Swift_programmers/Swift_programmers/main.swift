@@ -7,48 +7,68 @@
 
 import Foundation
 
-//func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
-//    var lostStud = lost
-//    for stud in reserve {
-//        if let index = lostStud.firstIndex(of: stud) {
-//            lostStud.remove(at: index)
-//        } else if let index = lostStud.firstIndex(of: stud - 1) {
-//            lostStud.remove(at: index)
-//        } else if let index = lostStud.firstIndex(of: stud + 1) {
-//            lostStud.remove(at: index)
+// X, Y 중 하나를 배열로, 나머지 하나는 겹치는 문자를
+// replacingOccurences로 없애면서 Array에 기록해두기
+// Array를 거꾸로 정렬하면 완성
+
+//func solution(_ X:String, _ Y:String) -> String {
+//    let xArray = X.split(separator: "")
+//    var yArray = Y.split(separator: "")
+//    var result = ""
+//    var commonComp: [String] = []
+//    for comp in xArray {
+//        if let i = yArray.firstIndex(of: comp) {
+//            yArray.remove(at: i)
+//            commonComp.append(comp.description)
 //        }
 //    }
-//    return n - lostStud.count
+//    if commonComp.isEmpty {
+//        return "-1"
+//    } else if !commonComp.contains(["1","2","3","4","5","6","7","8","9"]) {
+//        return "0"
+//    } else {
+//        commonComp = commonComp.sorted(by: >)
+//        for comp in commonComp {
+//            result += comp
+//        }
+//        return result
+//    }
 //}
-// 3~5,10,12,17~21,23~25 실패
+// 무슨 이유에서인지 split은 사용되지 않고 contains에는 배열이 들어가지 않음
 
-func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
-    var maxStud = 0
-    var students: [Int] = Array(repeating: 0, count: n)
-    for stud in lost {
-        students[stud-1] += -1
-    }
-    for stud in reserve {
-        students[stud-1] += 1
-    }
-    for i in 0..<n-1 {
-        if students[i] + students[i+1] == 0 {
-            students[i] = 0
-            students[i+1] = 0
+func solution(_ X:String, _ Y:String) -> String {
+    let xArray = X.map { $0 }
+    var yArray = Y.map { $0 }
+    var commonComp: [String] = []
+    var result = ""
+    for comp in xArray {
+        if yArray.contains(comp) {
+            commonComp.append(comp.description)
+            yArray.remove(at: yArray.firstIndex(of: comp)!)
         }
     }
-    print(students)
-    for stud in students {
-        if stud >= 0 {
-            maxStud += 1
+    if commonComp.isEmpty {
+        return "-1"
+    } else {
+        commonComp = commonComp.sorted(by: >)
+        for comp in commonComp {
+            result += comp
         }
+        if result.replacingOccurrences(of: "0", with: "") == "" {
+            return "0"
+        }
+        return result
     }
-    return maxStud
 }
+// 시간초과..!
 
-print(solution(3, [3], [1]))
 
-//n    lost    reserve    return
-//5    [2, 4]    [1, 3, 5]    5
-//5    [2, 4]    [3]    4
-//3    [3]    [1]    2
+
+print(solution("12321", "42531"))
+
+//X    Y    result
+//"100"    "2345"    "-1"
+//"100"    "203045"    "0"
+//"100"    "123450"    "10"
+//"12321"    "42531"    "321"
+//"5525"    "1255"    "552"
