@@ -36,33 +36,50 @@ import Foundation
 //}
 // 무슨 이유에서인지 split은 사용되지 않고 contains에는 배열이 들어가지 않음
 
-func solution(_ X:String, _ Y:String) -> String {
-    let xArray = X.map { $0 }
-    var yArray = Y.map { $0 }
-    var commonComp: [String] = []
-    var result = ""
-    for comp in xArray {
-        if yArray.contains(comp) {
-            commonComp.append(comp.description)
-            yArray.remove(at: yArray.firstIndex(of: comp)!)
-        }
-    }
-    if commonComp.isEmpty {
-        return "-1"
-    } else {
-        commonComp = commonComp.sorted(by: >)
-        for comp in commonComp {
-            result += comp
-        }
-        if result.replacingOccurrences(of: "0", with: "") == "" {
-            return "0"
-        }
-        return result
-    }
-}
+
+//func solution(_ X:String, _ Y:String) -> String {
+//    let xArray = X.map { $0 }
+//    var yArray = Y.map { $0 }
+//    var commonComp: [String] = []
+//    var result = ""
+//    for comp in xArray {
+//        if yArray.contains(comp) {
+//            commonComp.append(comp.description)
+//            yArray.remove(at: yArray.firstIndex(of: comp)!)
+//        }
+//    }
+//    if commonComp.isEmpty {
+//        return "-1"
+//    } else {
+//        commonComp = commonComp.sorted(by: >)
+//        for comp in commonComp {
+//            result += comp
+//        }
+//        if result.replacingOccurrences(of: "0", with: "") == "" {
+//            return "0"
+//        }
+//        return result
+//    }
+//}
 // 시간초과..!
 
 
+func solution(_ X:String, _ Y:String) -> String {
+    var result = ""
+    let commonComp = Y.map { $0 }.filter { X.contains($0) }.sorted(by: >)
+    if commonComp.isEmpty {
+        return "-1"
+    }
+    for comp in commonComp {
+        result += comp.description
+    }
+    if result.replacingOccurrences(of: "0", with: "") == "" {
+        return "0"
+    }
+    return result
+}
+// 3, 5, 8, 10 - 실패
+// 11 ~ 15 - 시간 초과
 
 print(solution("12321", "42531"))
 
