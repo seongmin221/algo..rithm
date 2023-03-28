@@ -64,22 +64,65 @@ import Foundation
 // 시간초과..!
 
 
+//func solution(_ X:String, _ Y:String) -> String {
+//    var result = ""
+//    let commonComp = Y.map { $0 }.filter { X.contains($0) }.sorted(by: >)
+//    if commonComp.isEmpty {
+//        return "-1"
+//    }
+//    for comp in commonComp {
+//        result += comp.description
+//    }
+//    if result.replacingOccurrences(of: "0", with: "") == "" {
+//        return "0"
+//    }
+//    return result
+//}
+// 3, 5, 8, 10 - 실패
+// 11 ~ 15 - 시간 초과
+
+
 func solution(_ X:String, _ Y:String) -> String {
+    var xDict: [String: Int] = Dictionary()
+    var yDict: [String: Int] = Dictionary()
+    var commonDict: [String: Int] = Dictionary()
+    var x = X
+    var y = Y
     var result = ""
-    let commonComp = Y.map { $0 }.filter { X.contains($0) }.sorted(by: >)
-    if commonComp.isEmpty {
+    for i in 0..<10 {
+        let stringI = String(i)
+        commonDict[stringI] = 0
+    }
+    while x != "" {
+        let xIndex = x.popLast()!.description
+        if xDict[xIndex] == nil {
+            xDict[xIndex] = 1
+        } else {
+            xDict[xIndex]! += 1
+        }
+    }
+    while y != "" {
+        let yIndex = y.popLast()!.description
+        if yDict[yIndex] == nil {
+            yDict[yIndex] = 1
+        } else {
+            yDict[yIndex]! += 1
+        }
+    }
+    let commonKey: [Dictionary<String, Int>.Key] = xDict.keys.filter { yDict.keys.contains($0) }.sorted(by: >)
+    if commonKey.isEmpty {
         return "-1"
     }
-    for comp in commonComp {
-        result += comp.description
-    }
-    if result.replacingOccurrences(of: "0", with: "") == "" {
+    if commonKey.first! == "0" && commonKey.last! == "0" {
         return "0"
+    }
+    for key in commonKey {
+        for _ in 0..<min(xDict[key.description]!, yDict[key.description]!) {
+            result += key.description
+        }
     }
     return result
 }
-// 3, 5, 8, 10 - 실패
-// 11 ~ 15 - 시간 초과
 
 print(solution("12321", "42531"))
 
