@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E6D7B8A29DA71120000D73C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6D7B8929DA71120000D73C /* main.swift */; };
+		3E6D7BAC29DC51E80000D73C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6D7BAB29DC51E80000D73C /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,8 @@
 
 /* Begin PBXFileReference section */
 		3E6D7B8529D90C6C0000D73C /* [X]둘 만의 암호.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[X]둘 만의 암호.swift"; sourceTree = "<group>"; };
-		3E6D7B8929DA71120000D73C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E6D7B8929DA71120000D73C /* 개인정보 수집 유효기간.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "개인정보 수집 유효기간.swift"; sourceTree = "<group>"; };
+		3E6D7BAB29DC51E80000D73C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E953A8829C19F810073302F /* Swift_programmers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Swift_programmers; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E953A8B29C19F810073302F /* 다항식 더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다항식 더하기.swift"; sourceTree = "<group>"; };
 		3E953A9229C1AF8F0073302F /* 최빈값 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최빈값 구하기.swift"; sourceTree = "<group>"; };
@@ -93,7 +94,8 @@
 				3E953AB429D6DDFD0073302F /* 성격 유형 검사하기.swift */,
 				3E953AB629D7BD910073302F /* 햄버거 만들기.swift */,
 				3E6D7B8529D90C6C0000D73C /* [X]둘 만의 암호.swift */,
-				3E6D7B8929DA71120000D73C /* main.swift */,
+				3E6D7B8929DA71120000D73C /* 개인정보 수집 유효기간.swift */,
+				3E6D7BAB29DC51E80000D73C /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -157,7 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E6D7B8A29DA71120000D73C /* main.swift in Sources */,
+				3E6D7BAC29DC51E80000D73C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
