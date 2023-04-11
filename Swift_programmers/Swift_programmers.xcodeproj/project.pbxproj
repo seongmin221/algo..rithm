@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EF7909829E23C2A0052578E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7909729E23C2A0052578E /* main.swift */; };
+		3EF790A329E4F6840052578E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF790A229E4F6840052578E /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,7 +48,8 @@
 		3E953AB629D7BD910073302F /* 햄버거 만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "햄버거 만들기.swift"; sourceTree = "<group>"; };
 		3EF7905829E00A570052578E /* 올바른 괄호.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "올바른 괄호.swift"; sourceTree = "<group>"; };
 		3EF7905A29E0F05E0052578E /* 점프와 순간 이동.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "점프와 순간 이동.swift"; sourceTree = "<group>"; };
-		3EF7909729E23C2A0052578E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3EF7909729E23C2A0052578E /* [△]괄호 회전하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[△]괄호 회전하기.swift"; sourceTree = "<group>"; };
+		3EF790A229E4F6840052578E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +106,8 @@
 				3EF7905829E00A570052578E /* 올바른 괄호.swift */,
 				3EF7905A29E0F05E0052578E /* 점프와 순간 이동.swift */,
 				3E6D7BB529DEC52F0000D73C /* 소수 만들기.swift */,
-				3EF7909729E23C2A0052578E /* main.swift */,
+				3EF7909729E23C2A0052578E /* [△]괄호 회전하기.swift */,
+				3EF790A229E4F6840052578E /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -169,7 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF7909829E23C2A0052578E /* main.swift in Sources */,
+				3EF790A329E4F6840052578E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
