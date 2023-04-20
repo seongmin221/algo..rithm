@@ -17,40 +17,43 @@ func solution(_ priorities:[Int], _ location:Int) -> Int {
     // 2. 나머지 인쇄 대기목록에서 J보다 중요도가 높은 문서가 한 개라도 존재하면 J를 대기목록의 가장 마지막에 넣습니다.
     // 3. 그렇지 않으면 J를 인쇄합니다.
     
+    var result = 0
+    
     var priorities = priorities
     var loc = location
-    var cnt = 0
-    while true {
-        let i = priorities.firstIndex(of: priorities.max()!)!
-        if i == loc {
-            cnt += 1
-            break
-        }
-        
-        if i == 0 {
-            priorities.removeFirst()
-            cnt += 1
-            loc -= 1
-        } else {
-            let sub = priorities[0..<i]
-            priorities.removeSubrange(0..<i)
-            priorities.append(contentsOf: sub)
-            if loc < i {
-                loc = loc + priorities.count - i
-            } else if loc > i {
-                loc = loc - i
-            }
-            priorities.removeFirst()
-            loc -= 1
-            cnt += 1
-        }
+    
+    var max = priorities.max()!
+    
+    if priorities[loc] == max {
+        return 1
     }
     
-    return cnt
+    while priorities[loc] != max {
+        print(loc, priorities)
+        let i = priorities.firstIndex(of: max)!
+        if i == 0 {
+            priorities.removeFirst()
+            result += 1
+        } else {
+            let temp = priorities[0..<i-1]
+            priorities.append(contentsOf: temp)
+            priorities.removeSubrange(0..<i+1)
+            result += 1
+            
+            if loc < i {
+                loc =  loc + priorities.count - i - 1
+            } else if loc > i {
+                loc = loc - i - 1
+            }
+        }
+        max = priorities.max()!
+    }
+    
+    return result
 }
 
-print(solution([2, 1, 3, 2], 2))
-//print(solution([1, 1, 9, 1, 1, 1], 0))
+//print(solution([2, 1, 3, 2], 2))
+print(solution([1, 1, 9, 1, 1, 1], 0))
 
 //priorities    location    return
 //[2, 1, 3, 2]    2    1
