@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E83B11C29FA10E40015A7E0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83B11B29FA10E40015A7E0 /* main.swift */; };
+		3E83B11E29FA20200015A7E0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83B11D29FA20200015A7E0 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,8 @@
 		3E6D7BAB29DC51E80000D73C /* 신고 결과 받기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "신고 결과 받기.swift"; sourceTree = "<group>"; };
 		3E6D7BB329DD4A1A0000D73C /* 실패율.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "실패율.swift"; sourceTree = "<group>"; };
 		3E6D7BB529DEC52F0000D73C /* 소수 만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "소수 만들기.swift"; sourceTree = "<group>"; };
-		3E83B11B29FA10E40015A7E0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E83B11B29FA10E40015A7E0 /* 타겟 넘버.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "타겟 넘버.swift"; sourceTree = "<group>"; };
+		3E83B11D29FA20200015A7E0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E953A8829C19F810073302F /* Swift_programmers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Swift_programmers; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E953A8B29C19F810073302F /* 다항식 더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다항식 더하기.swift"; sourceTree = "<group>"; };
 		3E953A9229C1AF8F0073302F /* 최빈값 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최빈값 구하기.swift"; sourceTree = "<group>"; };
@@ -121,7 +122,8 @@
 				3EF7910A29E8EA440052578E /* [X] [1차] 뉴스 클러스터링.swift */,
 				3EF53CE429EBC2650076FA7A /* 위장.swift */,
 				3EF53CE729ECE7D00076FA7A /* [X] 프로세스.swift */,
-				3E83B11B29FA10E40015A7E0 /* main.swift */,
+				3E83B11B29FA10E40015A7E0 /* 타겟 넘버.swift */,
+				3E83B11D29FA20200015A7E0 /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -185,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E83B11C29FA10E40015A7E0 /* main.swift in Sources */,
+				3E83B11E29FA20200015A7E0 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
