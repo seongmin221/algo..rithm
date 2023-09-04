@@ -61,6 +61,7 @@
 		3E5368B829B1CB25000CBD48 /* Swift_BOJ */ = {
 			isa = PBXGroup;
 			children = (
+				3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */,
 				3E5368C029B1CB32000CBD48 /* 수학 */,
 			);
 			path = Swift_BOJ;
@@ -71,12 +72,20 @@
 			children = (
 				3E5368D029BB1226000CBD48 /* 10869-사칙연산.swift */,
 				3E5368B929B1CB25000CBD48 /* 1000-A+B.swift */,
-				3E5368C129B1CBC4000CBD48 /* main.swift */,
 				3E5368D229BDB910000CBD48 /* 2884-알람 시계.swift */,
 				3EB3B18B29BF1BD4004FFECE /* 10818-최대 최소.swift */,
 			);
 			name = "수학";
 			path = "수학";
+			sourceTree = "<group>";
+		};
+		3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */ = {
+			isa = PBXGroup;
+			children = (
+				3E5368C129B1CBC4000CBD48 /* main.swift */,
+			);
+			name = "삼성SW역량기출";
+			path = "삼성SW역량기추";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
