@@ -73,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E61EE842AA5B81D004F25DB /* Level3 */ = {
+			isa = PBXGroup;
+			children = (
+				3E61EE802AA59B76004F25DB /* 단어변환.swift */,
+			);
+			path = Level3;
+			sourceTree = "<group>";
+		};
 		3E83B11F29FA20750015A7E0 /* Level1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +125,6 @@
 				3EF7910A29E8EA440052578E /* [X] [1차] 뉴스 클러스터링.swift */,
 				3EF53CE729ECE7D00076FA7A /* [X] 프로세스.swift */,
 				3E83B11D29FA20200015A7E0 /* [3차] 압축.swift */,
-				3E61EE802AA59B76004F25DB /* 단어변환.swift */,
 			);
 			path = Level2;
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 		3E953A8A29C19F810073302F /* Swift_programmers */ = {
 			isa = PBXGroup;
 			children = (
+				3E61EE842AA5B81D004F25DB /* Level3 */,
 				3E83B12029FA207E0015A7E0 /* Level2 */,
 				3E83B11F29FA20750015A7E0 /* Level1 */,
 				3E61EE822AA5B7D8004F25DB /* main.swift */,
