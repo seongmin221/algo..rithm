@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E5368CD29BB109D000CBD48 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5368C129B1CBC4000CBD48 /* main.swift */; };
+		3EE425262ACBC1E600DE5FA5 /* 2501-약수 구하기.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE425252ACBC1E600DE5FA5 /* 2501-약수 구하기.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +25,11 @@
 /* Begin PBXFileReference section */
 		3E5368B629B1CB25000CBD48 /* Swift_BOJ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Swift_BOJ; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5368B929B1CB25000CBD48 /* 1000-A+B.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1000-A+B.swift"; sourceTree = "<group>"; };
-		3E5368C129B1CBC4000CBD48 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E5368C129B1CBC4000CBD48 /* 어항정리.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "어항정리.swift"; sourceTree = "<group>"; };
 		3E5368D029BB1226000CBD48 /* 10869-사칙연산.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "10869-사칙연산.swift"; sourceTree = SOURCE_ROOT; };
 		3E5368D229BDB910000CBD48 /* 2884-알람 시계.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2884-알람 시계.swift"; sourceTree = "<group>"; };
 		3EB3B18B29BF1BD4004FFECE /* 10818-최대 최소.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "10818-최대 최소.swift"; sourceTree = "<group>"; };
+		3EE425252ACBC1E600DE5FA5 /* 2501-약수 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2501-약수 구하기.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		3E5368B829B1CB25000CBD48 /* Swift_BOJ */ = {
 			isa = PBXGroup;
 			children = (
+				3EE425242ACBC1CB00DE5FA5 /* 튼튼한 기본기 */,
 				3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */,
 				3E5368C029B1CB32000CBD48 /* 수학 */,
 			);
@@ -82,10 +84,19 @@
 		3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */ = {
 			isa = PBXGroup;
 			children = (
-				3E5368C129B1CBC4000CBD48 /* main.swift */,
+				3E5368C129B1CBC4000CBD48 /* 어항정리.swift */,
 			);
 			name = "삼성SW역량기출";
 			path = "삼성SW역량기추";
+			sourceTree = "<group>";
+		};
+		3EE425242ACBC1CB00DE5FA5 /* 튼튼한 기본기 */ = {
+			isa = PBXGroup;
+			children = (
+				3EE425252ACBC1E600DE5FA5 /* 2501-약수 구하기.swift */,
+			);
+			name = "튼튼한 기본기";
+			path = "튼튼한 기본기";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +127,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3E5368B529B1CB25000CBD48 = {
 						CreatedOnToolsVersion = 14.2;
@@ -146,7 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5368CD29BB109D000CBD48 /* main.swift in Sources */,
+				3EE425262ACBC1E600DE5FA5 /* 2501-약수 구하기.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,9 +197,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -246,9 +259,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -270,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
