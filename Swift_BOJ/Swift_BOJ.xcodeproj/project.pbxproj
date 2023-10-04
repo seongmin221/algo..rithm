@@ -6,6 +6,10 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3EE425572ACD24E600DE5FA5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE425562ACD24E600DE5FA5 /* main.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3E5368B429B1CB25000CBD48 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -28,6 +32,7 @@
 		3EE425252ACBC1E600DE5FA5 /* 2501-약수 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2501-약수 구하기.swift"; sourceTree = "<group>"; };
 		3EE425272ACBEEE900DE5FA5 /* 1978-소수 찾기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1978-소수 찾기.swift"; sourceTree = "<group>"; };
 		3EE4252A2ACBF16500DE5FA5 /* 14888-연산자 끼워넣기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "14888-연산자 끼워넣기.swift"; sourceTree = "<group>"; };
+		3EE425562ACD24E600DE5FA5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3EE4252A2ACBF16500DE5FA5 /* 14888-연산자 끼워넣기.swift */,
+				3EE425562ACD24E600DE5FA5 /* main.swift */,
 			);
 			name = "2 - 준비운동";
 			path = "2 - 준비운동";
@@ -167,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE425572ACD24E600DE5FA5 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +238,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -286,6 +294,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
