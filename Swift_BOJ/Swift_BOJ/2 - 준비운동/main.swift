@@ -7,25 +7,79 @@
 
 import Foundation
 
-/// 한 쌍의 괄호로만 이루어진 ‘()’와 ‘[]’는 올바른 괄호열이다.
-/// 만일 X가 올바른 괄호열이면 ‘(X)’이나 ‘[X]’도 모두 올바른 괄호열이 된다.
-/// X와 Y 모두 올바른 괄호열이라면 이들을 결합한 XY도 올바른 괄호열이 된다.
-///
-/// ‘()’ 인 괄호열의 값은 2이다.
-/// ‘[]’ 인 괄호열의 값은 3이다.
-/// ‘(X)’ 의 괄호값은 2×값(X) 으로 계산된다.
-/// ‘[X]’ 의 괄호값은 3×값(X) 으로 계산된다.
-/// 올바른 괄호열 X와 Y가 결합된 XY의 괄호값은 값(XY)= 값(X)+값(Y) 로 계산된다.
-///
+_ = readLine()!.components(separatedBy: " ").map { Int($0)! }
+let blocks = readLine()!.components(separatedBy: " ").map { Int($0)! }
+let blockCnt = blocks.count
 
-// (()[[]])([])
+var blockTemp = [0]
+var index = 0
+var inc = 0
+var dec = 0
+var turningPt = [0]
 
-var input = readLine()!.split(separator: "").map { String($0) }
-var cstack = [String]()
-var rstack = [Int]()
-var c = ""
+while index < blockCnt-1 {
+    blockTemp = Array(blocks.suffix(from: index))
+    inc = blockTemp.isIncUntil()
+    dec = blockTemp.isDecUntil()
+    index = max(inc, dec) + turningPt.last!
+    turningPt.append(index)
+}
 
-var result = 0
-var temp = 1
+var count = 0
+var line = 0
 
+//if blocks[turningPt.first!] < blocks[turningPt[1]] {
+//    turningPt.removeFirst()
+//}
+//if blocks[turningPt.last!] < blocks[turningPt.last!-1] {
+//    turningPt.removeLast()
+//}
+
+print(turningPt)
+
+if turningPt.count >= 3 {
+    
+    for i in 0..<turningPt.count-2 {
+        if blocks[turningPt[i]] < blocks[turningPt[i+1]] {
+            continue
+        } else {
+            line = min(blocks[turningPt[i]], blocks[turningPt[i+2]])
+            for j in turningPt[i]+1...turningPt[i+2]-1 {
+                count += line - blocks[j]
+            }
+        }
+    }
+    print(count)
+} else {
+    print(0)
+}
+
+
+extension Array where Element == Int {
+    func isIncUntil() -> Int {
+        var max = Int.min
+        for i in 0..<self.count {
+            if self[i] >= max {
+                max = self[i]
+                continue
+            } else {
+                return i - 1
+            }
+        }
+        return self.count - 1
+    }
+    
+    func isDecUntil() -> Int {
+        var min = Int.max
+        for i in 0..<self.count {
+            if self[i] <= min {
+                min = self[i]
+                continue
+            } else {
+                return i - 1
+            }
+        }
+        return self.count - 1
+    }
+}
 
