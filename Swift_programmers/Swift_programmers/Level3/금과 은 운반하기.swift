@@ -192,4 +192,4 @@ func solution(_ a:Int, _ b:Int, _ g:[Int], _ s:[Int], _ w:[Int], _ t:[Int]) -> I
 //    return Int64(time)
 //}
 
-print(solution(10, 10, [100], [100], [7], [10]))
+//print(solution(10, 10, [100], [100], [7], [10]))
