@@ -47,6 +47,21 @@
                   endingLineNumber = "31"
                   offsetFromSymbolStart = "2664">
                </Location>
+               <Location
+                  uuid = "956D6C7F-C385-45CD-9378-A83719BD6BAD - 3a12c6d6fc478643"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift_programmers.solution(Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;, Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;) -&gt; Swift.Int"
+                  moduleName = "Swift_programmers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "944">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
