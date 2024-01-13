@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E2688442B4FB7AA0038889D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2688432B4FB7AA0038889D /* main.swift */; };
+		3EA69B1D2B535962008AE23B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA69B1C2B535962008AE23B /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,7 +42,7 @@
 		3E26883D2B4E12980038889D /* n개의 최소공배수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "n개의 최소공배수.swift"; sourceTree = "<group>"; };
 		3E26883F2B4E16D10038889D /* 우박수열 정적분.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "우박수열 정적분.swift"; sourceTree = "<group>"; };
 		3E2688412B4E29780038889D /* 섬 연결하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "섬 연결하기.swift"; sourceTree = "<group>"; };
-		3E2688432B4FB7AA0038889D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E2688432B4FB7AA0038889D /* 기둥과 보 설치.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "기둥과 보 설치.swift"; sourceTree = "<group>"; };
 		3E3F45882AF20F8300B9D6AA /* 전력망을 둘로 나누기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "전력망을 둘로 나누기.swift"; sourceTree = "<group>"; };
 		3E3F458A2AF21C7F00B9D6AA /* 이중우선순위큐.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "이중우선순위큐.swift"; sourceTree = "<group>"; };
 		3E4EA4692B0DDDC800AA6B81 /* 카펫.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "카펫.swift"; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		3E953AB629D7BD910073302F /* 햄버거 만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "햄버거 만들기.swift"; sourceTree = "<group>"; };
 		3E95FFD92B181A350082BFDB /* 수식 최대화.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "수식 최대화.swift"; sourceTree = "<group>"; };
 		3E9F17802B16C54900131338 /* [3차] n진수 게임.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[3차] n진수 게임.swift"; sourceTree = "<group>"; };
+		3EA69B1C2B535962008AE23B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EC6C5662B11C07D00EF857A /* 2번.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2번.swift"; sourceTree = "<group>"; };
 		3EC6C5682B11D5C900EF857A /* 3번.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "3번.swift"; sourceTree = "<group>"; };
 		3EC6C56B2B11D87D00EF857A /* 금과 은 운반하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "금과 은 운반하기.swift"; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		3E61EE842AA5B81D004F25DB /* Level3 */ = {
 			isa = PBXGroup;
 			children = (
+				3E2688432B4FB7AA0038889D /* 기둥과 보 설치.swift */,
 				3E2688412B4E29780038889D /* 섬 연결하기.swift */,
 				3E26882E2B47A3860038889D /* 보석 쇼핑.swift */,
 				3E26882C2B4638310038889D /* [△] N으로 표현.swift */,
@@ -254,7 +256,7 @@
 				3E61EE842AA5B81D004F25DB /* Level3 */,
 				3E83B12029FA207E0015A7E0 /* Level2 */,
 				3E83B11F29FA20750015A7E0 /* Level1 */,
-				3E2688432B4FB7AA0038889D /* main.swift */,
+				3EA69B1C2B535962008AE23B /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -302,7 +304,7 @@
 				TargetAttributes = {
 					3E953A8729C19F810073302F = {
 						CreatedOnToolsVersion = 14.2;
-						LastSwiftMigration = 1510;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -329,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E2688442B4FB7AA0038889D /* main.swift in Sources */,
+				3EA69B1D2B535962008AE23B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
