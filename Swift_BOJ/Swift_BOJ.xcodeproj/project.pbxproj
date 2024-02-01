@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EA69C552B6B93EB008AE23B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA69C542B6B93EB008AE23B /* main.swift */; };
+		3EA69C572B6B9C26008AE23B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA69C562B6B9C26008AE23B /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,8 @@
 		3E5368D029BB1226000CBD48 /* 10869-사칙연산.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "10869-사칙연산.swift"; sourceTree = SOURCE_ROOT; };
 		3E5368D229BDB910000CBD48 /* 2884-알람 시계.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2884-알람 시계.swift"; sourceTree = "<group>"; };
 		3EA69C522B6B6537008AE23B /* 30885-phi squared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30885-phi squared.swift"; sourceTree = "<group>"; };
-		3EA69C542B6B93EB008AE23B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3EA69C542B6B93EB008AE23B /* 30876-Tren Del Fin Del Mundo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30876-Tren Del Fin Del Mundo.swift"; sourceTree = "<group>"; };
+		3EA69C562B6B9C26008AE23B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EB3B18B29BF1BD4004FFECE /* 10818-최대 최소.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "10818-최대 최소.swift"; sourceTree = "<group>"; };
 		3EE425252ACBC1E600DE5FA5 /* 2501-약수 구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2501-약수 구하기.swift"; sourceTree = "<group>"; };
 		3EE425272ACBEEE900DE5FA5 /* 1978-소수 찾기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1978-소수 찾기.swift"; sourceTree = "<group>"; };
@@ -83,7 +84,7 @@
 				3EE425242ACBC1CB00DE5FA5 /* 1 - 튼튼한 기본기 */,
 				3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */,
 				3E5368C029B1CB32000CBD48 /* 수학 */,
-				3EA69C542B6B93EB008AE23B /* main.swift */,
+				3EA69C562B6B9C26008AE23B /* main.swift */,
 			);
 			path = Swift_BOJ;
 			sourceTree = "<group>";
@@ -105,6 +106,7 @@
 			children = (
 				3E2688312B47B4F20038889D /* 30877-x marks the spot.swift */,
 				3EA69C522B6B6537008AE23B /* 30885-phi squared.swift */,
+				3EA69C542B6B93EB008AE23B /* 30876-Tren Del Fin Del Mundo.swift */,
 			);
 			path = AUTOEVER;
 			sourceTree = "<group>";
@@ -172,7 +174,7 @@
 				TargetAttributes = {
 					3E5368B529B1CB25000CBD48 = {
 						CreatedOnToolsVersion = 14.2;
-						LastSwiftMigration = 1510;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -199,7 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA69C552B6B93EB008AE23B /* main.swift in Sources */,
+				3EA69C572B6B9C26008AE23B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
