@@ -8,6 +8,17 @@
 import Foundation
 
 //let n = Int(readLine()!)!
+//var result = ""
+//for _ in 0..<n {
+//    let input = readLine()!.split(separator: " ").map { String($0) }
+//    let p = input[0].lowercased().firstIndex(of: "x")!
+//    result += input[1][p].uppercased()
+//}
+//
+//print(result)
+
+
+//let n = Int(readLine()!)!
 //var inputs: [(s: String, t: String)] = []
 //for _ in 0..<n {
 //    let input = readLine()!.split(separator: " ").map { String($0) }
