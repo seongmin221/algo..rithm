@@ -62,6 +62,21 @@
                   endingLineNumber = "194"
                   offsetFromSymbolStart = "412">
                </Location>
+               <Location
+                  uuid = "752A66B2-2326-4F8E-99B3-9665D9D1C920 - 85b117455252f835"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "Swift_programmers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "92">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
