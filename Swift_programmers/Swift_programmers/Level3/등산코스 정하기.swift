@@ -561,3 +561,281 @@ import Foundation
 //print(solution(7, [[1, 4, 4], [1, 6, 1], [1, 7, 3], [2, 5, 2], [3, 7, 4], [5, 6, 6]], [1], [2,3,4]))
 //print(solution(7, [[1, 2, 5], [1, 4, 1], [2, 3, 1], [2, 6, 7], [4, 5, 1], [5, 6, 1], [6, 7, 1]], [3, 7], [1,5]))
 
+//struct PriorityQueue {
+//
+//}
+
+//func solution(_ n: Int, _ paths: [[Int]], _ gates: [Int], _ summits: [Int]) -> [Int] {
+//
+//    var pathMap: [Int: [(des: Int, offset: Int)]] = [:]
+//    for i in 0..<n+1 { pathMap[i] = [] }
+//
+//    for path in paths {
+//        let src = path[0]
+//        let dest = path[1]
+//        let offset = path[2]
+//        pathMap[src]!.append((dest, offset))
+//        pathMap[dest]!.append((src, offset))
+//    }
+//
+//    var queue: [(des: Int, offset: Int)] = []
+//    func insertQueue(dataArray: [(des: Int, offset: Int)]) {
+//        queue += dataArray
+//        queue.sort(by: { $0.offset < $1.offset })
+//    }
+//    queue += gates.map { ($0, 0) }
+//
+//    var dij: [Int] = .init(repeating: 0, count: n+1)
+//
+//    while !queue.isEmpty {
+//        let path = queue.removeFirst()
+//        let dest = path.des
+//        let offset = path.offset
+////        if dij[dest] <= offset { continue }
+//        dij[dest] = offset
+//
+//        if summits.contains(dest) { continue }
+//        insertQueue(dataArray: pathMap[dest]!)
+//    }
+//
+//    var result = Int.max
+//    for summit in summits {
+//        result = min(result, dij[summit])
+//    }
+//    print(dij)
+//
+//    return []
+//}
+
+
+//func solution(_ n: Int, _ paths: [[Int]], _ gates: [Int], _ summits: [Int]) -> [Int] {
+//
+//    var result: [Int] = [0, Int.max]
+//
+//    var pathMap: [Int: [(des: Int, offset: Int)]] = [:]
+//    for i in 0..<n+1 { pathMap[i] = [] }
+//
+//    for path in paths.sorted(by: { $0[2] < $1[2] }) {
+//        let src = path[0]
+//        let dest = path[1]
+//        let offset = path[2]
+//        pathMap[src]!.append((dest, offset))
+//        pathMap[dest]!.append((src, offset))
+//    }
+//
+//    let sortedSummits = summits.sorted()
+//    func dfs(summitIndex: Int) -> Int? {
+//        var visited: [Int] = []
+//        var summits = sortedSummits
+//        let start = summits.remove(at: summitIndex)
+//
+//        var maxOffset = 0
+//
+//        func recur(currentPos: Int, currentOffset: Int) -> Int? {
+//            /// 이미 갔던 곳 || 또 다른 봉우리
+//            if visited.contains(currentPos) || summits.contains(currentPos) { return nil }
+//
+//            maxOffset = max(maxOffset, currentOffset)
+//            visited.append(currentPos)
+//            if maxOffset > result[1] { return nil }
+//
+//            /// 게이트에 도달
+//            if gates.contains(currentPos) { return maxOffset }
+//
+//            for path in pathMap[currentPos]! {
+//                guard let maxOffset = recur(currentPos: path.des, currentOffset: path.offset)
+//                else { continue }
+//                return maxOffset
+//            }
+//            return nil
+//        }
+//
+//        return recur(currentPos: start, currentOffset: 0)
+//    }
+//
+//    var minPathOffset = Int.max
+//    for (index, summit) in sortedSummits.enumerated() {
+//        let currentMin = dfs(summitIndex: index) ?? Int.max
+//
+//        if minPathOffset <= currentMin { continue }
+//        else {
+//            minPathOffset = currentMin
+//            result = [summit, currentMin]
+//        }
+//    }
+//
+//    return result
+//}
+
+
+
+//func solution(_ n: Int, _ paths: [[Int]], _ gates: [Int], _ summits: [Int]) -> [Int] {
+//
+//    /// 기본 설정
+//    var pathMap: [Int: [(des: Int, offset: Int)]] = [:]
+//    for i in 0..<n+1 { pathMap[i] = [] }
+//
+//    for path in paths.sorted(by: { $0[2] < $1[2] }) {
+//        let src = path[0]
+//        let dest = path[1]
+//        let offset = path[2]
+//        pathMap[src]!.append((dest, offset))
+//        pathMap[dest]!.append((src, offset))
+//    }
+//
+//
+//    /// dijkstra
+//    var q: [(index: Int, maxOffset: Int)] = gates.map { ($0, 0) }
+//    var dij: [Int] = .init(repeating: 10000001, count: n+1)
+//
+//    while !q.isEmpty {
+//        let node = q.removeFirst()
+//
+//        if node.maxOffset < dij[node.index] { dij[node.index] = node.maxOffset }
+//        else { continue }
+//
+//        if summits.contains(node.index)
+//            || (gates.contains(node.index) && node.maxOffset > 0){ continue }
+//
+//        let nextPoints: [(index: Int, maxOffset: Int)] = pathMap[node.index]!
+//            .map { des, offset in
+//                return (des, max(offset, node.maxOffset))
+//            }
+//        q += nextPoints
+//    }
+//
+//    var result: [Int] = [0, 10000001]
+//    for summit in summits {
+//        if result[1] <= dij[summit] { continue }
+//        else { result = [summit, dij[summit]] }
+//    }
+//
+//    return result
+//}
+
+
+
+struct Heap {
+    var data: [(index: Int, maxOffset: Int)]
+    
+    init() {
+        self.data = [(-1, -1)]
+    }
+}
+
+extension Heap {
+    mutating func push(index: Int, maxOffset: Int) {
+        let node = (index, maxOffset)
+        data.append(node)
+        
+        var nodeIndex = data.count - 1
+        var parentIndex = nodeIndex / 2
+        while data[parentIndex].maxOffset < maxOffset && parentIndex >= 1 {
+            data.swapAt(parentIndex, nodeIndex)
+            parentIndex /= 2
+            nodeIndex = parentIndex
+        }
+    }
+    
+    mutating func pop() -> (index: Int, maxOffset: Int) {
+        data.swapAt(1, data.count - 1)
+        let returnValue = data.removeLast()
+        
+        var index = 1
+        var leftChild: Int { index * 2 }
+        var rightChild: Int { index * 2 + 1 }
+        
+        while true {
+            if leftChild >= data.count { break }
+            if rightChild >= data.count {
+                if data[index].maxOffset > data[leftChild].maxOffset {
+                    data.swapAt(index, leftChild)
+                }
+                break
+            }
+            
+            if data[index].maxOffset < data[leftChild].maxOffset && data[index].maxOffset < data[rightChild].maxOffset {
+                break
+            }
+            
+            if data[index].maxOffset > data[leftChild].maxOffset && data[index].maxOffset > data[rightChild].maxOffset {
+                if data[leftChild].maxOffset > data[rightChild].maxOffset {
+                    data.swapAt(index, leftChild)
+                    index = leftChild
+                } else {
+                    data.swapAt(index, rightChild)
+                    index = rightChild
+                }
+                
+                continue
+            }
+            
+            if data[leftChild].maxOffset > data[rightChild].maxOffset {
+                data.swapAt(index, leftChild)
+                index = leftChild
+            } else {
+                data.swapAt(index, rightChild)
+                index = rightChild
+            }
+        }
+        
+        return returnValue
+    }
+    
+    mutating func isEmpty() -> Bool {
+        if data.count <= 1 { return true }
+        else { return false }
+    }
+}
+
+
+func solution(_ n: Int, _ paths: [[Int]], _ gates: [Int], _ summits: [Int]) -> [Int] {
+    
+    var result: [Int] = [0, 10000001]
+    
+    /// 기본 설정
+    var pathMap: [Int: [(index: Int, offset: Int)]] = [:]
+    for i in 0..<n+1 { pathMap[i] = [] }
+    
+    for path in paths {
+        let src = path[0]
+        let dest = path[1]
+        let offset = path[2]
+        pathMap[src]!.append((dest, offset))
+        pathMap[dest]!.append((src, offset))
+    }
+    
+    let sortedSummits = Set(summits)
+    
+    /// dijkstra
+    var heap: Heap = .init()
+    for gate in gates { heap.push(index: gate, maxOffset: 0) }
+    var dij: [Int] = .init(repeating: 10000001, count: n+1)
+    
+    while !heap.isEmpty() {
+        let node = heap.pop()
+        
+        if sortedSummits.contains(node.index) {
+            if result[1] > node.maxOffset { result = [node.index, node.maxOffset] }
+            else if result[1] == node.maxOffset { result[0] = min(result[0], node.index) }
+            continue
+        }
+        if node.maxOffset > dij[node.index] { continue }
+        
+        for dest in pathMap[node.index]! {
+            let maxOffset = max(dest.offset, node.maxOffset)
+            if maxOffset < dij[dest.index] {
+                dij[dest.index] = maxOffset
+                heap.push(index: dest.index, maxOffset: maxOffset)
+            }
+        }
+    }
+    
+    
+    return result
+}
+
+//print(solution(6, [[1, 2, 3], [2, 3, 5], [2, 4, 2], [2, 5, 4], [3, 4, 4], [4, 5, 3], [4, 6, 1], [5, 6, 1]], [1, 3], [5]))
+//print(solution(7, [[1, 4, 4], [1, 6, 1], [1, 7, 3], [2, 5, 2], [3, 7, 4], [5, 6, 6]], [1], [2, 3, 4]))
+//print(solution(7, [[1, 2, 5], [1, 4, 1], [2, 3, 1], [2, 6, 7], [4, 5, 1], [5, 6, 1], [6, 7, 1]], [3, 7], [1, 5]))
+//print(solution(7, [[1, 4, 4], [1, 6, 1], [1, 7, 3], [2, 5, 2], [3, 7, 4], [5, 6, 6]], [2], [3, 4]))
