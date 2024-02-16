@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E1E73FE2B770F640082386A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E73FD2B770F640082386A /* main.swift */; };
+		3E28CC6E2B7EEB9500818CD3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CC6D2B7EEB9500818CD3 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +34,7 @@
 		3E1A61B22B0A34930017DD28 /* 두 큐 합 같게 만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "두 큐 합 같게 만들기.swift"; sourceTree = "<group>"; };
 		3E1E73F42B71C92C0082386A /* 메뉴 리뉴얼.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "메뉴 리뉴얼.swift"; sourceTree = "<group>"; };
 		3E1E73F62B734F660082386A /* 표 편집.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "표 편집.swift"; sourceTree = "<group>"; };
-		3E1E73FD2B770F640082386A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E1E73FD2B770F640082386A /* ⭐️광고 삽입.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "⭐️광고 삽입.swift"; sourceTree = "<group>"; };
 		3E26882C2B4638310038889D /* [△] N으로 표현.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[△] N으로 표현.swift"; sourceTree = "<group>"; };
 		3E26882E2B47A3860038889D /* 보석 쇼핑.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "보석 쇼핑.swift"; sourceTree = "<group>"; };
 		3E2688332B4A410E0038889D /* 베스트앨범.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "베스트앨범.swift"; sourceTree = "<group>"; };
@@ -46,6 +46,7 @@
 		3E26883F2B4E16D10038889D /* 우박수열 정적분.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "우박수열 정적분.swift"; sourceTree = "<group>"; };
 		3E2688412B4E29780038889D /* 섬 연결하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "섬 연결하기.swift"; sourceTree = "<group>"; };
 		3E2688432B4FB7AA0038889D /* [△]기둥과 보 설치.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[△]기둥과 보 설치.swift"; sourceTree = "<group>"; };
+		3E28CC6D2B7EEB9500818CD3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E3F45882AF20F8300B9D6AA /* 전력망을 둘로 나누기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "전력망을 둘로 나누기.swift"; sourceTree = "<group>"; };
 		3E3F458A2AF21C7F00B9D6AA /* 이중우선순위큐.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "이중우선순위큐.swift"; sourceTree = "<group>"; };
 		3E4EA4692B0DDDC800AA6B81 /* 카펫.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "카펫.swift"; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 				3E61EE822AA5B7D8004F25DB /* [△] 합승 택시 요금.swift */,
 				3E0C2D1A2B05E37C00895281 /* [진행중] 양과 늑대.swift */,
 				3E4EA46D2B0F895200AA6B81 /* 등산코스 정하기.swift */,
+				3E1E73FD2B770F640082386A /* ⭐️광고 삽입.swift */,
 				3EE4CCB32B390FBA00DCEB79 /* 순위.swift */,
 				3EE4CCBE2B3C016A00DCEB79 /* 입국심사.swift */,
 				3EE4CCC52B3D912F00DCEB79 /* [X] 사라지는 발판.swift */,
@@ -302,7 +304,7 @@
 				3E61EE842AA5B81D004F25DB /* Level3 */,
 				3E83B12029FA207E0015A7E0 /* Level2 */,
 				3E83B11F29FA20750015A7E0 /* Level1 */,
-				3E1E73FD2B770F640082386A /* main.swift */,
+				3E28CC6D2B7EEB9500818CD3 /* main.swift */,
 			);
 			path = Swift_programmers;
 			sourceTree = "<group>";
@@ -377,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E1E73FE2B770F640082386A /* main.swift in Sources */,
+				3E28CC6E2B7EEB9500818CD3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
