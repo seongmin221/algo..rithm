@@ -14,98 +14,10 @@
             filePath = "Swift_programmers/main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193">
-            <Locations>
-               <Location
-                  uuid = "752A66B2-2326-4F8E-99B3-9665D9D1C920 - 85b117455252f1c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "Swift_programmers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "752A66B2-2326-4F8E-99B3-9665D9D1C920 - 85b117455252f1e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "Swift_programmers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "254"
-                  endingLineNumber = "254"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "752A66B2-2326-4F8E-99B3-9665D9D1C920 - d54ddad6c76ca9a5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift_programmers.solution(Swift.Int, Swift.Array&lt;Swift.Int&gt;, Swift.Array&lt;Swift.Int&gt;) -&gt; Swift.Int"
-                  moduleName = "Swift_programmers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "412">
-               </Location>
-               <Location
-                  uuid = "752A66B2-2326-4F8E-99B3-9665D9D1C920 - 85b117455252f835"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "Swift_programmers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seongmin/Desktop/algo..rithm/Swift_programmers/Swift_programmers/main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "92">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C8E17A87-9F8A-4A2A-AE1E-20DE5D801CEA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Swift_programmers/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2E783E70-F949-4A10-B671-63CB04A777D4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Swift_programmers/main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154">
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
