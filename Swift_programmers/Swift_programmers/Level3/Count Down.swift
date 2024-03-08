@@ -54,38 +54,57 @@ import Foundation
 
 func solution(_ target: Int) -> [Int] {
     
-    var dp: [Int: (count: Int, weight: Int)] = [:]
-    for i in 1...target {
-        dp[i] = (target, 0)
-    }
-    
-    var possiblePoints: [Int: Int] = [:]
+    var dp: [[Int]] = .init(repeating: [target, 0], count: 100001)
     for i in 1...20 {
-        possiblePoints[i] = 1
-        possiblePoints[i * 2] = 0
-        possiblePoints[i * 3] = 0
+        dp[i] = [1, 1]
+        dp[i * 2] = [1, 0]
+        dp[i * 3] = [1, 0]
     }
-    possiblePoints[50] = 1
-    
-    for (point, weight) in possiblePoints {
-        dp[point] = (1, weight)
-    }
+    dp[50] = [1, 1]
     
     for i in 1...target {
-        for (point, weight) in possiblePoints {
-            let np = i + point
-            guard np <= target else { continue }
-            let (c, w) = dp[i]!
-            let (nc, nw) = dp[np]!
-            if nc > c + 1 {
-                dp[np] = (c + 1, w + weight)
-            } else if nc == c + 1 {
-                dp[np]!.weight = w + weight
+        for j in 1...20 {
+            // single
+            if i + j <= target {
+                if dp[i+j][0] > dp[i][0] + 1 {
+                    dp[i+j][0] = dp[i][0] + 1
+                    dp[i+j][1] = dp[i][1] + 1
+                }
+                else if dp[i+j][0] == dp[i][0] + 1 {
+                    dp[i+j][1] = max(dp[i][1] + 1, dp[i+j][1])
+                }
+            }
+            
+            // bull
+            if i + 50 <= target {
+                if dp[i+50][0] >= dp[i][0] + 1 {
+                    dp[i+50][0] = dp[i][0] + 1
+                    dp[i+50][1] = dp[i][1] + 1
+                }
+                else if dp[i+50][0] == dp[i][0] + 1 {
+                    dp[i+50][1] = max(dp[i][1] + 1, dp[i+50][1])
+                }
+            }
+            
+            // double
+            if i + 2 * j <= target {
+                if dp[i+2*j][0] > dp[i][0] + 1 {
+                    dp[i+2*j][0] = dp[i][0] + 1
+                    dp[i+2*j][1] = dp[i][1]
+                }
+            }
+            
+            // triple
+            if i + 3 * j <= target {
+                if dp[i+3*j][0] > dp[i][0] + 1 {
+                    dp[i+3*j][0] = dp[i][0] + 1
+                    dp[i+3*j][1] = dp[i][1]
+                }
             }
         }
     }
     
-    return [dp[target]!.count, dp[target]!.weight]
+    return dp[target]
 }
 
-print(solution(294))
+//print(solution(58))
