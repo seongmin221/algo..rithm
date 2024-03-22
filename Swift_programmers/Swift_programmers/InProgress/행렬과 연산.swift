@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  행렬과 연산.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/10/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation

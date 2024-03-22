@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  블록 게임.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 2/16/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
@@ -15,14 +15,14 @@ import Foundation
 //
 //struct Shape: Equatable {
 //    let directions: [Direction]
-//    
+//
 //    static func == (lhs: Shape, rhs: Shape) -> Bool {
 //        return lhs.directions == rhs.directions
 //    }
 //}
 //
 //func solution(_ board: [[Int]]) -> Int {
-//    
+//
 //    let removable: [Shape] = [
 //        .init(directions: [.down, .down, .right]),
 //        .init(directions: [.down, .down, .left]),
@@ -32,12 +32,12 @@ import Foundation
 //    ]
 //    let dx = [1, -1, 0]
 //    let dy = [0, 0, 1]
-//    
+//
 //    let height: Int = board.count
 //    let width: Int = board.first!.count
-//    
+//
 //    var impossibleXs: Set<Int> = .init()
-//    
+//
 //    func isRemovable(y: Int, x: Int) -> (Bool, Set<Int>) {
 //        let num = board[y][x]
 //        var directions: [Direction] = []
@@ -52,10 +52,10 @@ import Foundation
 //            for i in 0..<3 {
 //                let nx = x + dx[i]
 //                let ny = y + dy[i]
-//                
+//
 //                if (ny < 0) || (ny >= height) || (nx < 0) || (nx >= width) { continue }
 //                if visited.contains(where: { $0.y == ny && $0.x == nx }) { continue }
-//                
+//
 //                if board[ny][nx] == num {
 ////                    print("origin: \(y), \(x), order: \(i) - new", ny, nx)
 //                    switch i {
@@ -72,8 +72,8 @@ import Foundation
 //        if !impossibleXs.intersection(visitedX).isEmpty { return (false, visitedX)}
 //        return (removable.contains(.init(directions: directions)), visitedX)
 //    }
-//    
-//    
+//
+//
 //    var removableCount: Int = 0
 //    for y in 0..<height {
 //        for x in 0..<width {
@@ -87,7 +87,7 @@ import Foundation
 //            removableCount += 1
 //        }
 //    }
-//    
+//
 //    return removableCount
 //}
 
@@ -107,14 +107,14 @@ import Foundation
 //    let minY: Int
 //    let maxY: Int
 //    let directions: [Direction]
-//    
+//
 //    static func == (lhs: Shape, rhs: Shape) -> Bool {
 //        return lhs.directions == rhs.directions
 //    }
 //}
 
 //func solution(_ board: [[Int]]) -> Int {
-//    
+//
 //    var board = board
 //    let removableShape: Set<[Direction]> = [
 //        [.down, .down, .right],
@@ -125,10 +125,10 @@ import Foundation
 //    ]
 //    let dx = [1, -1, 0]
 //    let dy = [0, 0, 1]
-//    
+//
 //    let height: Int = board.count
 //    let width: Int = board.first!.count
-//    
+//
 //    func configureShape(y: Int, x: Int) -> Shape {
 //        let num = board[y][x]
 //        var directions: [Direction] = []
@@ -138,10 +138,10 @@ import Foundation
 //            for i in 0..<3 {
 //                let nx = x + dx[i]
 //                let ny = y + dy[i]
-//                
+//
 //                if (ny < 0) || (ny >= height) || (nx < 0) || (nx >= width) { continue }
 //                if visited.contains(where: { $0.y == ny && $0.x == nx }) { continue }
-//                
+//
 //                if board[ny][nx] == num {
 //                    switch i {
 //                    case 0: directions.append(.right)
@@ -163,7 +163,7 @@ import Foundation
 //                     maxY: ys.max()!,
 //                     directions: directions)
 //    }
-//    
+//
 //    func removeBlockUnder(shape: Shape) {
 //        for y in shape.maxY + 1 ..< height {
 //            for x in shape.minX ..< shape.maxX {
@@ -171,17 +171,17 @@ import Foundation
 //            }
 //        }
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    var configuredShapeId: Set<Int> = []
-//    
+//
 //    var unremovable: [Shape] = []
 //    for y in 0..<height {
 //        for x in 0..<width {
 //            let num = board[y][x]
 //            guard num != 0 && !configuredShapeId.contains(num) else { continue }
-//            
+//
 //            let shape = configureShape(y: y, x: x)
 //            if !removableShape.contains(shape.directions) {
 //                unremovable.append(shape)
@@ -190,27 +190,27 @@ import Foundation
 //        }
 //    }
 //    print(unremovable)
-//    
+//
 //    for ur in unremovable {
 //        removeBlockUnder(shape: ur)
 //    }
-//    
+//
 //    for r in board { print(r) }
-//    
+//
 //    var result = 0
 //    for y in 0..<height {
 //        for x in 0..<width {
 //            let num = board[y][x]
 //            guard num != 0 && !configuredShapeId.contains(num) else { continue }
-//            
+//
 //            let shape = configureShape(y: y, x: x)
 //            if removableShape.contains(shape.directions) {
 //                result += 1
 //            }
 //        }
 //    }
-//    
-//    
+//
+//
 //    var shapes: Set<Shape> = []
 //    var impossibleShapes: [Shape] = []
 //    var configuredShapeId: Set<Int> = []
@@ -218,17 +218,17 @@ import Foundation
 //        for x in 0..<width {
 //            let num = board[y][x]
 //            guard num != 0 && !configuredShapeId.contains(num) else { continue }
-//            
+//
 //            let shape = configureShape(y: y, x: x)
 //            shapes.insert(shape)
 //            configuredShapeId.insert(shape.id)
 //            if !removable.contains(shape.directions) {
-//                
+//
 //            }
 //        }
 //    }
 //    print(shapes)
-//    
+//
 //    return result
 //}
 
