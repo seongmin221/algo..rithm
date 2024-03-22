@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E67C9332BA681240018446D /* progressTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E67C9322BA681240018446D /* progressTime.swift */; };
-		3E67C97D2BA9B85D0018446D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E67C97C2BA9B85D0018446D /* main.swift */; };
+		3E91CEBF2BAD20BD001FFDC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91CEBE2BAD20BD001FFDC6 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,7 +57,7 @@
 		3E61EE822AA5B7D8004F25DB /* [△] 합승 택시 요금.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[△] 합승 택시 요금.swift"; sourceTree = "<group>"; };
 		3E67C9322BA681240018446D /* progressTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressTime.swift; sourceTree = "<group>"; };
 		3E67C9342BA7E6CA0018446D /* word puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "word puzzle.swift"; sourceTree = "<group>"; };
-		3E67C97C2BA9B85D0018446D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E67C97C2BA9B85D0018446D /* maze research.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "maze research.swift"; sourceTree = "<group>"; };
 		3E6D07F42B980B000029B635 /* 등대.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "등대.swift"; sourceTree = "<group>"; };
 		3E6D07F62B994A110029B635 /* Count Down.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Count Down.swift"; sourceTree = "<group>"; };
 		3E6D7B8529D90C6C0000D73C /* [X]둘 만의 암호.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[X]둘 만의 암호.swift"; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		3E8F24782BA01D0A00A395B5 /* Building Racing Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Building Racing Track.swift"; sourceTree = "<group>"; };
 		3E8F24872BA283BF00A395B5 /* Crossing Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crossing Bridge.swift"; sourceTree = "<group>"; };
 		3E8F24892BA2E1A500A395B5 /* muzi's mukbang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "muzi's mukbang.swift"; sourceTree = "<group>"; };
+		3E91CEBC2BABB44F001FFDC6 /* tree trio mid value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "tree trio mid value.swift"; sourceTree = "<group>"; };
+		3E91CEBE2BAD20BD001FFDC6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E923C522AF513FE00694077 /* 주차 요금 계산.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "주차 요금 계산.swift"; sourceTree = "<group>"; };
 		3E923C562AF64F3700694077 /* 프로세스.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "프로세스.swift"; sourceTree = "<group>"; };
 		3E92C4992AFCAFCE00510BB8 /* 삼각 달팽이.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "삼각 달팽이.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		3E1236552B346F3D003F983B /* Level4 */ = {
 			isa = PBXGroup;
 			children = (
+				3E91CEBC2BABB44F001FFDC6 /* tree trio mid value.swift */,
 				3E67C9342BA7E6CA0018446D /* word puzzle.swift */,
 				3E8F24892BA2E1A500A395B5 /* muzi's mukbang.swift */,
 				3E8F24382B9E9EB400A395B5 /* twin builder forest.swift */,
@@ -313,6 +316,7 @@
 		3E8F24372B9E9E5D00A395B5 /* InProgress */ = {
 			isa = PBXGroup;
 			children = (
+				3E67C97C2BA9B85D0018446D /* maze research.swift */,
 				3E8F24352B9D768100A395B5 /* Matrix and calculation.swift */,
 				3E28CC6D2B7EEB9500818CD3 /* Block Game.swift */,
 			);
@@ -322,7 +326,7 @@
 		3E953A7F29C19F800073302F = {
 			isa = PBXGroup;
 			children = (
-				3E67C97C2BA9B85D0018446D /* main.swift */,
+				3E91CEBE2BAD20BD001FFDC6 /* main.swift */,
 				3E67C9312BA681190018446D /* Util */,
 				3E953A8A29C19F810073302F /* Swift_programmers */,
 				3E953A8929C19F810073302F /* Products */,
@@ -420,7 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E67C97D2BA9B85D0018446D /* main.swift in Sources */,
+				3E91CEBF2BAD20BD001FFDC6 /* main.swift in Sources */,
 				3E67C9332BA681240018446D /* progressTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
