@@ -1,17 +1,17 @@
 //
-//  main.swift
+//  모두 0으로 만들기.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/9/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
 
 //func solution(_ a: [Int], _ edges: [[Int]]) -> Int64 {
-//    
+//
 //    guard a.reduce(0, { $0 + $1 }) == 0 else { return Int64(-1) }
 //    if a.allSatisfy({ $0 == 0 }) { return 0 }
-//    
+//
 //    var dict: [Int: Set<Int>] = [:]
 //    var nodes: [Int: Int] = [:]
 //    for i in 0..<a.count {
@@ -22,8 +22,8 @@ import Foundation
 //        dict[edge[0]]!.insert(edge[1])
 //        dict[edge[1]]!.insert(edge[0])
 //    }
-//    
-//    
+//
+//
 //    func findEndNodes() -> Set<Int> {
 //        var endNodes: Set<Int> = []
 //        for (key, value) in dict {
@@ -32,32 +32,32 @@ import Foundation
 //        }
 //        return endNodes
 //    }
-//    
+//
 //    var result = 0
 //    var endNodes = findEndNodes()
 //    while !endNodes.isEmpty {
 //        for node in endNodes {
 //            guard let other = dict[node]!.first else { break }
 //            result += abs(nodes[node]!)
-//            
+//
 //            nodes[other]! += nodes[node]!
 //            nodes[node] = nil
-//            
+//
 //            dict[other]!.remove(node)
 //            dict[node] = nil
 //        }
 //        endNodes = findEndNodes()
 //    }
-//    
-//    
+//
+//
 //    return Int64(result)
 //}
 
 //func solution(_ a: [Int], _ edges: [[Int]]) -> Int64 {
-//    
+//
 //    guard a.reduce(0, { $0 + $1 }) == 0 else { return Int64(-1) }
 //    if a.allSatisfy({ $0 == 0 }) { return 0 }
-//    
+//
 //    var dict: [Int: Set<Int>] = [:]
 //    var offsets: [Int: Int] = [:]
 //    for i in 0..<a.count {
@@ -68,35 +68,35 @@ import Foundation
 //        dict[edge[0]]!.insert(edge[1])
 //        dict[edge[1]]!.insert(edge[0])
 //    }
-//    
-//    
+//
+//
 //    var result = 0
 //    while true {
 //        for (node, connected) in dict {
 //            guard connected.count == 1 else { continue }
 //            guard let c = connected.first else { break }
 //            result += abs(offsets[node]!)
-//            
+//
 //            guard offsets[c] != nil else { return Int64(result) }
 //            offsets[c]! += offsets[node]!
 //            offsets[node] = nil
-//            
+//
 //            dict[c]!.remove(node)
 //            dict[node] = nil
 //        }
 //    }
-//    
-//    
+//
+//
 //    return Int64(result)
 //}
 
 //func solution(_ a: [Int], _ edges: [[Int]]) -> Int64 {
-//    
+//
 //    guard a.reduce(0, { $0 + $1 }) == 0 else { return Int64(-1) }
 //    if a.allSatisfy({ $0 == 0 }) { return 0 }
-//    
+//
 //    var result: Int = 0
-//    
+//
 //    var connected: [Int: Set<Int>] = [:]
 //    var offsets: [Int: Int] = [:]
 //    for i in 0..<a.count {
@@ -107,27 +107,27 @@ import Foundation
 //        connected[edge[0]]!.insert(edge[1])
 //        connected[edge[1]]!.insert(edge[0])
 //    }
-//    
+//
 //    func dfs(start: Int, visited: Set<Int>) {
 //        var visited = visited
 //        visited.insert(start)
-//        
+//
 //        if connected[start]!.isSubset(of: visited) {
 //            result += offsets[start]!
 //            return
 //        }
-//        
+//
 //        for node in connected[start]! {
 //            guard !visited.contains(node) else { continue }
 //            dfs(start: node, visited: visited)
 //            print(start, node, result)
 //        }
-//        
+//
 //        return
 //    }
-//    
+//
 //    dfs(start: 0, visited: [])
-//    
+//
 //    return Int64(result + abs(offsets[0]!))
 //}
 

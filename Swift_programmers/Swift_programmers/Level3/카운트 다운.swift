@@ -1,14 +1,14 @@
 //
-//  main.swift
+//  카운트 다운.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/7/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
 
 //func solution(_ target: Int) -> [Int] {
-//    
+//
 //    var dpWeight: [Int: Int] = [:]
 //    var dpSpecial: [Int: Int] = [:]
 //    for i in 1...target {
@@ -29,17 +29,17 @@ import Foundation
 //        }
 //    }
 //    possiblePoints[50] = (1, 1)
-//    
+//
 //    for (point, (weight, special)) in possiblePoints {
 //        dpWeight[point] = weight
 //        dpSpecial[point] = special
 //    }
-//    
+//
 //    for i in 1...target {
 //        for (point, (weight, special)) in possiblePoints {
 //            let np = i + point
 //            guard np <= target else { continue }
-//            
+//
 //            if let currentWeight = dpWeight[np] {
 //                if currentWeight >= dpWeight[i]! + weight {
 //                    dpWeight[np] = dpWeight[i]! + weight
@@ -48,7 +48,7 @@ import Foundation
 //            }
 //        }
 //    }
-//    
+//
 //    return [dpWeight[target]!, dpSpecial[target]!]
 //}
 

@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  징검다리 건너기.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/14/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ import Foundation
 
 //struct MinHeap<Node: Comparable> {
 //    var nodes: [Node] = []
-//    
+//
 //    var root: Node? {
 //        if isEmpty { return nil }
 //        else { return nodes[1] }
@@ -27,20 +27,20 @@ import Foundation
 //        if count <= 1 { return true }
 //        else { return false }
 //    }
-//    
+//
 //    mutating func insert(node: Node) {
 //        if nodes.isEmpty { nodes.append(node) }
 //        nodes.append(node)
 //        sortUp()
 //    }
-//    
+//
 //    mutating func popNode() -> Node? {
 //        guard !isEmpty else { return nil }
 //        let element = nodes[1]
 //        nodes.swapAt(1, count-1)
 //        nodes.removeLast()
 //        sortDown()
-//        
+//
 //        return element
 //    }
 //}
@@ -56,7 +56,7 @@ import Foundation
 //            parent = child / 2
 //        }
 //    }
-//    
+//
 //    mutating private func sortDown() {
 //        var p: Int = 1
 //        while true {
@@ -64,7 +64,7 @@ import Foundation
 //            let rc: Int = 2 * p + 1
 //            // no children
 //            if lc > count - 1 { break }
-//            
+//
 //            // only lc
 //            if lc == count - 1 {
 //                if nodes[p] > nodes[lc] {
@@ -73,7 +73,7 @@ import Foundation
 //                }
 //                break
 //            }
-//            
+//
 //            // need swap
 //            // lc <= rc
 //            if rc <= count - 1 {
@@ -95,7 +95,7 @@ import Foundation
 //struct Node: Comparable {
 //    let pos: Int
 //    var offset: Int
-//    
+//
 //    static func <(lhs: Node, rhs: Node) -> Bool {
 //        return lhs.offset < rhs.offset
 //    }
@@ -103,13 +103,13 @@ import Foundation
 //
 //
 //func solution(_ stones: [Int], _ k: Int) -> Int {
-//    
+//
 //    var minHeap: MinHeap<Node> = .init()
 //    for (index, stone) in stones.enumerated() {
 //        minHeap.insert(node: .init(pos: index, offset: stone))
 //    }
 //    var crossed: Int = 0
-//    
+//
 //    var availableStones: [Int] = .init(repeating: 1, count: stones.count)
 //    func countEmptyStones(on pos: Int) -> Int {
 //        var sp: Int = pos
@@ -126,31 +126,31 @@ import Foundation
 //        }
 //        return ep - sp + 1
 //    }
-//    
+//
 //    var longestEmptyStones: Int = 0
 //    while true {
 //        var removedStones: [Int] = []
 //        guard let removed = minHeap.popNode() else { break }
 //        availableStones[removed.pos] = 0
 //        removedStones.append(removed.pos)
-//        
+//
 //        while true {
 //            guard let root = minHeap.root,
 //                  root.offset == removed.offset,
 //                  let r = minHeap.popNode()
 //            else { break }
-//            
+//
 //            availableStones[r.pos] = 0
 //            removedStones.append(r.pos)
 //        }
-//        
+//
 //        for pos in removedStones {
 //            longestEmptyStones = max(longestEmptyStones, countEmptyStones(on: pos))
 //        }
 //        guard longestEmptyStones <= k else { break }
 //        crossed = removed.offset
 //    }
-//    
+//
 //    return crossed
 //}
 
