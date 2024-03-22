@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  단어 퍼즐.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/18/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 // MARK: - 1차 시도: 효율성 실패
 
 //func solution(_ strs: [String], _ t: String) -> Int {
-//    
+//
 //    var dp: [String: Int] = [:]
 //    dp[""] = 0
 //    var k: String = ""
@@ -18,14 +18,14 @@ import Foundation
 //        k.append(c)
 //        dp[k] = 20_001
 //    }
-//    
+//
 //    var keys: [String] = dp.keys.map { $0 }
 //    keys.sort()
-//    
+//
 //    for key in keys {
 //        for str in strs {
 //            guard key.count >= str.count else { continue }
-//            
+//
 //            if key.hasSuffix(str) {
 //                var prevKey = key
 //                prevKey.removeLast(str.count)
@@ -34,26 +34,26 @@ import Foundation
 //            }
 //        }
 //    }
-//    
+//
 //    return dp[t] == 20_001 ? -1 : dp[t]!
 //}
 
 // MARK: - 2차 시도: 시간초과
 
 //func solution(_ strs: [String], _ t: String) -> Int {
-//    
+//
 //    let tCount = t.count
 //    let tStart = t.startIndex
-//    
+//
 //    var dp: [Int: Int] = [:]
 //    for i in 0...tCount { dp[i] = 200000 }
-//    
+//
 //    for l in stride(from: tCount-1, to: -1, by: -1) {
 //        for r in stride(from: tCount, to: l, by: -1) {
 //            let lp = t.index(tStart, offsetBy: l)
 //            let rp = t.index(tStart, offsetBy: r)
 //            let target = String(t[lp..<rp])
-//            
+//
 //            if strs.contains(target) {
 //                if r == tCount {
 //                    dp[l] = 1
@@ -64,7 +64,7 @@ import Foundation
 //            }
 //        }
 //    }
-//    
+//
 //    return dp[0]! >= 20000 ? -1 : dp[0]!
 //}
 
@@ -102,3 +102,4 @@ func solution(_ strs: [String], _ t: String) -> Int {
 }
 
 //print(solution(["app","ap","p","l","e","ple","pp"], "apple"))
+

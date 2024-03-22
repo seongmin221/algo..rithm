@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  무지의 먹방.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/14/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
@@ -142,7 +142,7 @@ func solution(_ food_times: [Int], _ k: Int64) -> Int {
 //            emptyStoneCount = 0
 //        }
 //    }
-//    
+//
 //    if emptyStoneCount >= k {
 //        right = crossed
 //    } else {

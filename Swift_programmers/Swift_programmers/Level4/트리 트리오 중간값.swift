@@ -1,8 +1,8 @@
 //
-//  main.swift
+//  트리 트리오 중간값.swift
 //  Swift_programmers
 //
-//  Created by 이성민 on 3/21/24.
+//  Created by 이성민 on 3/22/24.
 //
 
 import Foundation
@@ -92,3 +92,5 @@ func solution(_ n: Int, _ edges: [[Int]]) -> Int {
 
 
 //print(solution(5, [[1,5],[2,5],[3,5],[4,5]]))
+
+
