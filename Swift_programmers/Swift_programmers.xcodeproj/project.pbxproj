@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E67C9332BA681240018446D /* progressTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E67C9322BA681240018446D /* progressTime.swift */; };
 		3E91CEDE2BADA7AC001FFDC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91CEBE2BAD20BD001FFDC6 /* main.swift */; };
+		3EF9F8842BBA6C6800F3E366 /* 지형 편집.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9F8832BBA6C6800F3E366 /* 지형 편집.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,6 +153,8 @@
 		3EF790E229E6F1B20052578E /* H-index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "H-index.swift"; sourceTree = "<group>"; };
 		3EF790FE29E7A33B0052578E /* 기능개발.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "기능개발.swift"; sourceTree = "<group>"; };
 		3EF7910A29E8EA440052578E /* [X] [1차] 뉴스 클러스터링.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[X] [1차] 뉴스 클러스터링.swift"; sourceTree = "<group>"; };
+		3EF9F8812BBA3FA600F3E366 /* [▵] 숫자 타자 대회.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[▵] 숫자 타자 대회.swift"; sourceTree = "<group>"; };
+		3EF9F8832BBA6C6800F3E366 /* 지형 편집.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "지형 편집.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,7 @@
 				3E91CEC62BAD2171001FFDC6 /* 쌍둥이 빌딩 숲.swift */,
 				3E91CEC82BAD21B2001FFDC6 /* 단어 퍼즐.swift */,
 				3E91CEDF2BADC0BD001FFDC6 /* 호텔 방 배정.swift */,
+				3EF9F8832BBA6C6800F3E366 /* 지형 편집.swift */,
 			);
 			path = Level4;
 			sourceTree = "<group>";
@@ -229,6 +233,7 @@
 				3E91CED82BAD232A001FFDC6 /* 카운트 다운.swift */,
 				3E91CEDA2BAD7292001FFDC6 /* 코딩 테스트 공부.swift */,
 				3E91CEDC2BADA789001FFDC6 /* 기지국 설치.swift */,
+				3EF9F8812BBA3FA600F3E366 /* [▵] 숫자 타자 대회.swift */,
 			);
 			path = Level3;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			files = (
 				3E67C9332BA681240018446D /* progressTime.swift in Sources */,
 				3E91CEDE2BADA7AC001FFDC6 /* main.swift in Sources */,
+				3EF9F8842BBA6C6800F3E366 /* 지형 편집.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
