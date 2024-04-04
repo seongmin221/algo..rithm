@@ -99,4 +99,4 @@ func solution(_ numbers: String) -> Int {
     return iterate(idx: 0, lt: 4, rt: 6)
 }
 
-//print(solution("1756"))
+print(solution("1756"))
