@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E67C9332BA681240018446D /* progressTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E67C9322BA681240018446D /* progressTime.swift */; };
-		3EF9F8842BBA6C6800F3E366 /* 지형 편집.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9F8832BBA6C6800F3E366 /* 지형 편집.swift */; };
-		3EF9F8C22BBFCDF600F3E366 /* 고고학 최고의 발견.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9F8C12BBFCDF600F3E366 /* 고고학 최고의 발견.swift */; };
+		3EF9F8C32BBFDBC500F3E366 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91CEBE2BAD20BD001FFDC6 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,6 +157,7 @@
 		3EF9F8BD2BBF178F00F3E366 /* 억억단을 외우자.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "억억단을 외우자.swift"; sourceTree = "<group>"; };
 		3EF9F8BF2BBF93FF00F3E366 /* 동굴 탐험.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "동굴 탐험.swift"; sourceTree = "<group>"; };
 		3EF9F8C12BBFCDF600F3E366 /* 고고학 최고의 발견.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "고고학 최고의 발견.swift"; sourceTree = "<group>"; };
+		3EF9F8C42BC0C74000F3E366 /* 방문 길이.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "방문 길이.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +325,7 @@
 				3E1A61B22B0A34930017DD28 /* 두 큐 합 같게 만들기.swift */,
 				3E95FFD92B181A350082BFDB /* 수식 최대화.swift */,
 				3E26883F2B4E16D10038889D /* 우박수열 정적분.swift */,
+				3EF9F8C42BC0C74000F3E366 /* 방문 길이.swift */,
 			);
 			path = Level2;
 			sourceTree = "<group>";
@@ -442,8 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E67C9332BA681240018446D /* progressTime.swift in Sources */,
-				3EF9F8C22BBFCDF600F3E366 /* 고고학 최고의 발견.swift in Sources */,
-				3EF9F8842BBA6C6800F3E366 /* 지형 편집.swift in Sources */,
+				3EF9F8C32BBFDBC500F3E366 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
