@@ -120,118 +120,230 @@ import Foundation
 //}
 
 
+//struct Position: Hashable {
+//    let r: Int
+//    let c: Int
+//}
+//
+//class Merged {
+//    var value: String
+//    var positions: Set<Position>
+//    
+//    init(value: String = "EMPTY", positions: Set<Position> = []) {
+//        self.value = value
+//        self.positions = positions
+//    }
+//}
+//
+//extension Merged {
+//    static func merge(_ merged1: Merged, _ merged2: Merged) -> Merged {
+//        if merged1.value != "EMPTY" {
+//            return .init(value: merged1.value, positions: merged1.positions.union(merged2.positions))
+//        }
+//        else if merged2.value != "EMPTY" {
+//            return .init(value: merged2.value, positions: merged1.positions.union(merged2.positions))
+//        }
+//        else {
+//            return .init(positions: merged1.positions.union(merged2.positions))
+//        }
+//    }
+//}
+//
+//
+//func solution(_ commands: [String]) -> [String] {
+//    
+//    var result: [String] = []
+//    
+//    var positions: Set<Position> = []
+//    for r in 1...50 { for c in 1...50 { positions.insert(.init(r: r, c: c)) } }
+//    
+//    // 해당 값을 갖는 위치들
+//    var positionTable: [String: Set<Position>] = [:]
+//    // merge된 것들을 기록하기 위한 테이블
+//    var mergedTable: [Position: Merged] = [:] // 하나의 Set을 바라보도록 하기 위해
+//    for position in positions { mergedTable[position] = .init(positions: [position]) }
+//    
+//    func update(r: Int, c: Int, value: String) {
+//        /// `(r, c)` 위치의 값을 `value`로 수정
+//        let pos: Position = .init(r: r, c: c)
+//        let positions = mergedTable[pos]!.positions
+//        
+//        if positionTable[value] == nil { positionTable[value] = positions }
+//        else { positionTable[value]!.formUnion(positions) }
+//        
+//        mergedTable[pos]!.value = value
+//    }
+//    
+//    func update(value1: String, value2: String) {
+//        /// `value1`에 해당하는 `모든 값`을 `value2`로 수정
+//        if let positions = positionTable.removeValue(forKey: value1) {
+//            // value1에 해당하는 위치값들을 통째로 삭제하고
+//            // value2에 해당하는 위치값으로 설정
+//            if positionTable[value2] == nil { positionTable[value2] = positions }
+//            else { positionTable[value2]!.formUnion(positions) }
+//            // value1이었던 것들의 value를 value2로 변경
+//            for pos in positions {
+//                mergedTable[pos]!.value = value2
+//            }
+//        }
+//    }
+//    
+//    func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
+//        /// `(r1, c1)`의 셀과 `(r2, c2)`의 셀을 병합
+//        let pos1: Position = .init(r: r1, c: c1)
+//        let pos2: Position = .init(r: r2, c: c2)
+//        let merged1 = mergedTable[pos1]!
+//        let merged2 = mergedTable[pos2]!
+//        let newMerged = Merged.merge(merged1, merged2)
+//        
+//        for pos in merged1.positions { positionTable[merged1.value]?.remove(pos) }
+//        for pos in merged2.positions { positionTable[merged2.value]?.remove(pos) }
+//        
+//        if positionTable[newMerged.value] == nil { positionTable[newMerged.value] = newMerged.positions }
+//        else { positionTable[newMerged.value]!.formUnion(newMerged.positions) }
+//        
+//        for pos in newMerged.positions {
+//            mergedTable[pos] = newMerged
+//        }
+//    }
+//    
+//    func unmerge(r: Int, c: Int) {
+//        /// `(r, c)` 위치의 셀을 병합 해제
+//        let pos: Position = .init(r: r, c: c)
+//        let value = mergedTable[pos]!.value
+//        var positions = mergedTable[pos]!.positions
+//        
+//        positions.remove(pos)
+//        
+//        if positionTable["EMPTY"] == nil { positionTable["EMPTY"] = positions }
+//        else { positionTable["EMPTY"]!.formUnion(positions) }
+//        
+//        if positionTable[value] == nil { positionTable[value] = [pos] }
+//        else { positionTable[value]!.insert(pos) }
+//        
+//        mergedTable[pos] = .init(value: value, positions: [pos])
+//        for p in positions {
+//            let newMerged: Merged = .init(positions: [p])
+//            mergedTable[p] = newMerged
+//        }
+//    }
+//    
+//    func printOp(r: Int, c: Int) {
+//        let value = mergedTable[.init(r: r, c: c)]!.value
+//        result.append(value)
+//    }
+//    
+//    
+//    for command in commands {
+//        let cmd = command.split(separator: " ").map { String($0) }
+//        switch cmd[0] {
+//        case "UPDATE":
+//            if cmd.count == 4 { update(r: Int(cmd[1])!, c: Int(cmd[2])!, value: cmd[3]) }
+//            else { update(value1: cmd[1], value2: cmd[2]) }
+//        case "MERGE":
+//            merge(r1: Int(cmd[1])!, c1: Int(cmd[2])!, r2: Int(cmd[3])!, c2: Int(cmd[4])!)
+//        case "UNMERGE":
+//            unmerge(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        case "PRINT":
+//            printOp(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        default: continue
+//        }
+//    }
+//    
+//    
+//    return result
+//}
+
+
 struct Position: Hashable {
     let r: Int
     let c: Int
 }
 
-class Merged {
-    var value: String
-    var positions: Set<Position>
-    
-    init(value: String = "EMPTY", positions: Set<Position> = []) {
-        self.value = value
-        self.positions = positions
-    }
-}
-
-extension Merged {
-    static func merge(_ merged1: Merged, _ merged2: Merged) -> Merged {
-        if merged1.value != "EMPTY" {
-            return .init(value: merged1.value, positions: merged1.positions.union(merged2.positions))
-        }
-        else if merged2.value != "EMPTY" {
-            return .init(value: merged2.value, positions: merged1.positions.union(merged2.positions))
-        }
-        else {
-            return .init(positions: merged1.positions.union(merged2.positions))
-        }
-    }
-}
-
-
 func solution(_ commands: [String]) -> [String] {
     
-    var result: [String] = []
+    var maxR: Int = 0
+    var maxC: Int = 0
+    for command in commands {
+        let cmdNums = command.split(separator: " ").compactMap { Int($0) }
+        for (i, num) in cmdNums.enumerated() {
+            if i % 2 == 1 { maxR = max(maxR, num) }
+            else { maxC = max(maxC, num) }
+        }
+    }
     
-    var positions: Set<Position> = []
-    for r in 1...50 { for c in 1...50 { positions.insert(.init(r: r, c: c)) } }
+    var unionFind: [Position: (root: Position, value: String)] = [:]
+//    var valueMap: [String: Set<Position>] = [:]
+    for r in 1...maxR { for c in 1...maxC {
+        let position: Position = .init(r: r, c: c)
+        unionFind[position] = (position, "EMPTY")
+    } }
     
-    // 해당 값을 갖는 위치들
-    var positionTable: [String: Set<Position>] = [:]
-    // merge된 것들을 기록하기 위한 테이블
-    var mergedTable: [Position: Merged] = [:] // 하나의 Set을 바라보도록 하기 위해
-    for position in positions { mergedTable[position] = .init(positions: [position]) }
+    
+    func findRoot(of pos: Position) -> Position {
+        if unionFind[pos]!.root == pos {
+            return pos
+        }
+        let parent = findRoot(of: unionFind[pos]!.root)
+        unionFind[pos]!.root = parent
+        return parent
+    }
+    
+    
+    // actual commands
     
     func update(r: Int, c: Int, value: String) {
-        /// `(r, c)` 위치의 값을 `value`로 수정
         let pos: Position = .init(r: r, c: c)
-        let positions = mergedTable[pos]!.positions
+        let root = findRoot(of: pos)
         
-        if positionTable[value] == nil { positionTable[value] = positions }
-        else { positionTable[value]!.formUnion(positions) }
-        
-        mergedTable[pos]!.value = value
+        unionFind[root]!.value = value
     }
     
     func update(value1: String, value2: String) {
-        /// `value1`에 해당하는 `모든 값`을 `value2`로 수정
-        if let positions = positionTable.removeValue(forKey: value1) {
-            // value1에 해당하는 위치값들을 통째로 삭제하고
-            // value2에 해당하는 위치값으로 설정
-            if positionTable[value2] == nil { positionTable[value2] = positions }
-            else { positionTable[value2]!.formUnion(positions) }
-            // value1이었던 것들의 value를 value2로 변경
-            for pos in positions {
-                mergedTable[pos]!.value = value2
-            }
+        for (key, content) in unionFind {
+            guard content.value == value1 else { continue }
+            print(key, content)
+            unionFind[key]!.value = value2
         }
     }
     
     func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
-        /// `(r1, c1)`의 셀과 `(r2, c2)`의 셀을 병합
         let pos1: Position = .init(r: r1, c: c1)
         let pos2: Position = .init(r: r2, c: c2)
-        let merged1 = mergedTable[pos1]!
-        let merged2 = mergedTable[pos2]!
-        let newMerged = Merged.merge(merged1, merged2)
         
-        if positionTable[newMerged.value] == nil { positionTable[newMerged.value] = newMerged.positions }
-        else { positionTable[newMerged.value]!.formUnion(newMerged.positions) }
+        let root1 = findRoot(of: pos1)
+        let root2 = findRoot(of: pos2)
         
-        for pos in newMerged.positions {
-            mergedTable[pos] = newMerged
+        if unionFind[root1]!.value == "EMPTY" && unionFind[root2]!.value != "EMPTY" {
+            unionFind[root1] = unionFind[root2]
+        } else {
+            unionFind[root2] = unionFind[root1]
         }
     }
     
     func unmerge(r: Int, c: Int) {
-        /// `(r, c)` 위치의 셀을 병합 해제
         let pos: Position = .init(r: r, c: c)
-        let value = mergedTable[pos]!.value
-        var positions = mergedTable[pos]!.positions
+        let root = findRoot(of: pos)
+        let value = unionFind[root]!.value
+        unionFind[root] = (root, "EMPTY")
+        unionFind[pos] = (pos, value)
         
-        positions.remove(pos)
-        
-        if positionTable["EMPTY"] == nil { positionTable["EMPTY"] = positions }
-        else { positionTable["EMPTY"]!.formUnion(positions) }
-        
-        if positionTable[value] == nil { positionTable[value] = [pos] }
-        else { positionTable[value]!.insert(pos) }
-        
-        mergedTable[pos] = .init(value: value, positions: [pos])
-        for p in positions {
-            let newMerged: Merged = .init(positions: [p])
-            mergedTable[p] = newMerged
+        for (key, content) in unionFind {
+            guard content.root == root else { continue }
+            unionFind[key]! = (key, "EMPTY")
         }
     }
     
+    var result: [String] = []
     func printOp(r: Int, c: Int) {
-        let value = mergedTable[.init(r: r, c: c)]!.value
-        result.append(value)
+        let pos: Position = .init(r: r, c: c)
+        let root = findRoot(of: pos)
+        result.append(unionFind[root]!.value)
     }
     
     
     for command in commands {
+        print(command)
         let cmd = command.split(separator: " ").map { String($0) }
         switch cmd[0] {
         case "UPDATE":
@@ -251,9 +363,6 @@ func solution(_ commands: [String]) -> [String] {
     return result
 }
 
-
 //print(solution(["UPDATE 1 1 menu", "UPDATE 1 2 category", "UPDATE 2 1 bibimbap", "UPDATE 2 2 korean", "UPDATE 2 3 rice", "UPDATE 3 1 ramyeon", "UPDATE 3 2 korean", "UPDATE 3 3 noodle", "UPDATE 3 4 instant", "UPDATE 4 1 pasta", "UPDATE 4 2 italian", "UPDATE 4 3 noodle", "MERGE 1 2 1 3", "MERGE 1 3 1 4", "UPDATE korean hansik", "UPDATE 1 3 group", "UNMERGE 1 4", "PRINT 1 3", "PRINT 1 4"]))
 
-//print(solution(["UPDATE 1 1 a", "UPDATE 1 2 b", "UPDATE 2 1 c", "UPDATE 2 2 d", "MERGE 1 1 1 2", "MERGE 2 2 2 1", "MERGE 2 1 1 1", "PRINT 1 1", "UNMERGE 2 2", "PRINT 1 1"]))
-
-//print(solution(["MERGE 1 1 1 2","MERGE 1 2 1 1", "PRINT 1 1"]))
+print(solution(["UPDATE 1 1 a", "UPDATE 1 2 b", "UPDATE 2 1 c", "UPDATE 2 2 d", "MERGE 1 1 1 2", "MERGE 2 2 2 1", "MERGE 2 1 1 1", "PRINT 1 1", "UNMERGE 2 2", "PRINT 1 1"]))
