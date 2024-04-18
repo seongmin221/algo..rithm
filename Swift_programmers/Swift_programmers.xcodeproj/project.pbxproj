@@ -31,6 +31,8 @@
 		3E0C2D1A2B05E37C00895281 /* [진행중] 양과 늑대.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[진행중] 양과 늑대.swift"; sourceTree = "<group>"; };
 		3E0CE5712B1336F200CB0CC0 /* 배달.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "배달.swift"; sourceTree = "<group>"; };
 		3E1236562B346F72003F983B /* [3차] 자동완성.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[3차] 자동완성.swift"; sourceTree = "<group>"; };
+		3E1A4EE02BD09BE3004CA603 /* 표 병합.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "표 병합.swift"; sourceTree = "<group>"; };
+		3E1A4EE22BD0BE5F004CA603 /* 인사고과.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "인사고과.swift"; sourceTree = "<group>"; };
 		3E1A61AE2B0A2A2B0017DD28 /* 수포자.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "수포자.swift"; sourceTree = "<group>"; };
 		3E1A61B02B0A2A7A0017DD28 /* 달리기 경주.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "달리기 경주.swift"; sourceTree = "<group>"; };
 		3E1A61B22B0A34930017DD28 /* 두 큐 합 같게 만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "두 큐 합 같게 만들기.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				3EF9F8812BBA3FA600F3E366 /* [▵] 숫자 타자 대회.swift */,
 				3EF9F8BD2BBF178F00F3E366 /* 억억단을 외우자.swift */,
 				3E01B8632BCCB90400E4A1A3 /* 미로 탈출 명령어.swift */,
+				3E1A4EE22BD0BE5F004CA603 /* 인사고과.swift */,
 			);
 			path = Level3;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				3E91CECC2BAD221F001FFDC6 /* 행렬과 연산.swift */,
 				3E91CECE2BAD2235001FFDC6 /* 블록 게임.swift */,
 				3EF9F8C12BBFCDF600F3E366 /* 고고학 최고의 발견.swift */,
+				3E1A4EE02BD09BE3004CA603 /* 표 병합.swift */,
 			);
 			path = InProgress;
 			sourceTree = "<group>";
