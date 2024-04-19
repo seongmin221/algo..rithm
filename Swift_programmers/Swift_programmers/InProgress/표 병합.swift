@@ -255,50 +255,232 @@ import Foundation
 //}
 
 
-struct Position: Hashable {
-    let r: Int
-    let c: Int
-}
+//struct Position: Hashable {
+//    let r: Int
+//    let c: Int
+//}
+//
+//func solution(_ commands: [String]) -> [String] {
+//    
+//    var maxR: Int = 0
+//    var maxC: Int = 0
+//    for command in commands {
+//        let cmdNums = command.split(separator: " ").compactMap { Int($0) }
+//        for (i, num) in cmdNums.enumerated() {
+//            if i % 2 == 1 { maxR = max(maxR, num) }
+//            else { maxC = max(maxC, num) }
+//        }
+//    }
+//    
+//    
+//    
+//    func findRoot(of pos: Position) -> Position {
+//    }
+//    
+//    
+//    // actual commands
+//    
+//    func update(r: Int, c: Int, value: String) {
+//    }
+//    
+//    func update(value1: String, value2: String) {
+//    }
+//    
+//    func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
+//    }
+//    
+//    func unmerge(r: Int, c: Int) {
+//    }
+//    
+//    var result: [String] = []
+//    func printOp(r: Int, c: Int) {
+//    }
+//    
+//    
+//    for command in commands {
+//        print(command)
+//        let cmd = command.split(separator: " ").map { String($0) }
+//        switch cmd[0] {
+//        case "UPDATE":
+//            if cmd.count == 4 { update(r: Int(cmd[1])!, c: Int(cmd[2])!, value: cmd[3]) }
+//            else { update(value1: cmd[1], value2: cmd[2]) }
+//        case "MERGE":
+//            merge(r1: Int(cmd[1])!, c1: Int(cmd[2])!, r2: Int(cmd[3])!, c2: Int(cmd[4])!)
+//        case "UNMERGE":
+//            unmerge(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        case "PRINT":
+//            printOp(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        default: continue
+//        }
+//    }
+//    
+//    
+//    return result
+//}
+
+
+//func solution(_ commands: [String]) -> [String] {
+//
+//    var valueMap: [[String]] = .init(repeating: .init(repeating: "EMPTY", count: 51),
+//                                     count: 51)
+//    // mergeMap[r1][c1] = (r2, c2) -> (r1, c1)은 (r2, c2)에 머지되어 있음
+//    var mergeMap: [[(r: Int, c: Int)]] = .init(repeating: .init(repeating: (0, 0), count: 51),
+//                                               count: 51)
+//    for r in 1...50 { for c in 1...50 { mergeMap[r][c] = (r, c) } }
+//
+//    func findParentAndUpdate(r: Int, c: Int) -> (r: Int, c: Int) {
+//        func recursive(r: Int, c: Int) -> (r: Int, c: Int) {
+//            let (pr, pc) = mergeMap[r][c]
+//            if pr == mergeMap[pr][pc].r && pc == mergeMap[pr][pc].c { return (pr, pc) }
+//            mergeMap[pr][pc] = recursive(r: pr, c: pc)
+//            return mergeMap[pr][pc]
+//        }
+//
+//        return recursive(r: r, c: c)
+//    }
+//
+//    // actual commands
+//
+//    func update(r: Int, c: Int, value: String) {
+//        let (pr, pc) = findParentAndUpdate(r: r, c: c)
+//        valueMap[pr][pc] = value
+//    }
+//
+//    func update(value1: String, value2: String) {
+//        for r in 1...50 {
+//            for c in 1...50 {
+//                guard valueMap[r][c] == value1 else { continue }
+//                valueMap[r][c] = value2
+//            }
+//        }
+//    }
+//
+//    func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
+//        let (pr1, pc1) = findParentAndUpdate(r: r1, c: c1)
+//        let (pr2, pc2) = findParentAndUpdate(r: r2, c: c2)
+//        if valueMap[pr2][pc2] != "EMPTY" && valueMap[pr1][pc1] == "EMPTY" {
+//            // 둘 다 EMPTY면, (r2, c2) -> (r1, c1)에 MERGE
+//            mergeMap[pr1][pc1] = (pr2, pc2)
+//            valueMap[pr1][pc1] = "EMPTY" // *
+//        } else {
+//            // (r1, c1)이 EMPTY가 아니면 (r2, c2) -> (r1, c1)에 MERGE
+//            // (r1, c1)이 EMPTY이고, (r2, c2)가 EMPTY가 아니면 (r1, c1) -> (r2, c2)에 MERGE
+//            mergeMap[pr2][pc2] = (pr1, pc1)
+//            valueMap[pr2][pc2] = "EMPTY" // *
+//        }
+//    }
+//
+//    func unmerge(r: Int, c: Int) {
+//        let (pr, pc) = findParentAndUpdate(r: r, c: c)
+//        let value = valueMap[pr][pc]
+//        valueMap[pr][pc] = "EMPTY"
+//
+//        for r in 1...50 {
+//            for c in 1...50 {
+//                let (tr, tc) = findParentAndUpdate(r: r, c: c)
+//                guard tr == pr && tc == pc else { continue }
+//                mergeMap[r][c] = (r, c)
+//            }
+//        }
+//        valueMap[r][c] = value
+//    }
+//
+//    var result: [String] = []
+//    func printOp(r: Int, c: Int) {
+//        let (pr, pc) = findParentAndUpdate(r: r, c: c)
+//        result.append(valueMap[pr][pc])
+//    }
+//
+//
+//    for command in commands {
+//        let cmd = command.split(separator: " ").map { String($0) }
+//        switch cmd[0] {
+//        case "UPDATE":
+//            if cmd.count == 4 { update(r: Int(cmd[1])!, c: Int(cmd[2])!, value: cmd[3]) }
+//            else { update(value1: cmd[1], value2: cmd[2]) }
+//        case "MERGE":
+//            merge(r1: Int(cmd[1])!, c1: Int(cmd[2])!, r2: Int(cmd[3])!, c2: Int(cmd[4])!)
+//        case "UNMERGE":
+//            unmerge(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        case "PRINT":
+//            printOp(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        default: continue
+//        }
+//    }
+//
+//
+//    return result
+//}
 
 func solution(_ commands: [String]) -> [String] {
     
-    var maxR: Int = 0
-    var maxC: Int = 0
-    for command in commands {
-        let cmdNums = command.split(separator: " ").compactMap { Int($0) }
-        for (i, num) in cmdNums.enumerated() {
-            if i % 2 == 1 { maxR = max(maxR, num) }
-            else { maxC = max(maxC, num) }
-        }
-    }
-    
-    
-    
-    func findRoot(of pos: Position) -> Position {
-    }
-    
+    var valueMap: [[String]] = .init(repeating: .init(repeating: "EMPTY", count: 51),
+                                     count: 51)
+    // mergeMap[r1][c1] = (r2, c2) -> (r1, c1)은 (r2, c2)에 머지되어 있음
+    var mergeMap: [[(r: Int, c: Int)]] = .init(repeating: .init(repeating: (0, 0), count: 51),
+                                               count: 51)
+    for r in 1...50 { for c in 1...50 { mergeMap[r][c] = (r, c) } }
     
     // actual commands
     
     func update(r: Int, c: Int, value: String) {
+        var (pr, pc) = mergeMap[r][c]
+        (pr, pc) = mergeMap[pr][pc]
+        valueMap[pr][pc] = value
     }
     
     func update(value1: String, value2: String) {
+        for r in 1...50 {
+            for c in 1...50 {
+                guard valueMap[r][c] == value1 else { continue }
+                valueMap[r][c] = value2
+            }
+        }
     }
     
     func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
+        let (pr1, pc1) = mergeMap[r1][c1]
+        let (pr2, pc2) = mergeMap[r2][c2]
+        
+        if valueMap[pr1][pc1] == "EMPTY" {
+            valueMap[pr1][pc1] = valueMap[pr2][pc2]
+        }
+        for r in 1...50 {
+            for c in 1...50 {
+                if mergeMap[r][c] == (pr1, pc1) {
+                    valueMap[r][c] = valueMap[pr1][pc1]
+                }
+                else if mergeMap[r][c] == (pr2, pc2) {
+                    mergeMap[r][c] = (pr1, pc1)
+                    valueMap[r][c] = valueMap[pr1][pc1]
+                }
+            }
+        }
     }
     
     func unmerge(r: Int, c: Int) {
+        let (pr, pc) = mergeMap[r][c]
+        let value = valueMap[pr][pc]
+        
+        for r in 1...50 {
+            for c in 1...50 {
+                let (tr, tc) = mergeMap[r][c]
+                guard tr == pr && tc == pc else { continue }
+                mergeMap[r][c] = (r, c)
+                valueMap[r][c] = "EMPTY"
+            }
+        }
+        valueMap[r][c] = value
     }
     
     var result: [String] = []
     func printOp(r: Int, c: Int) {
+        let (pr, pc) = mergeMap[r][c]
+        result.append(valueMap[pr][pc])
     }
     
     
     for command in commands {
-        print(command)
         let cmd = command.split(separator: " ").map { String($0) }
         switch cmd[0] {
         case "UPDATE":
@@ -317,6 +499,11 @@ func solution(_ commands: [String]) -> [String] {
     
     return result
 }
+
+
+//print(solution(["UPDATE 1 1 menu", "UPDATE 1 2 category", "UPDATE 2 1 bibimbap", "UPDATE 2 2 korean", "UPDATE 2 3 rice", "UPDATE 3 1 ramyeon", "UPDATE 3 2 korean", "UPDATE 3 3 noodle", "UPDATE 3 4 instant", "UPDATE 4 1 pasta", "UPDATE 4 2 italian", "UPDATE 4 3 noodle", "MERGE 1 2 1 3", "MERGE 1 3 1 4", "UPDATE korean hansik", "UPDATE 1 3 group", "UNMERGE 1 4", "PRINT 1 3", "PRINT 1 4"]))
+
+
 
 //print(solution(["UPDATE 1 1 menu", "UPDATE 1 2 category", "UPDATE 2 1 bibimbap", "UPDATE 2 2 korean", "UPDATE 2 3 rice", "UPDATE 3 1 ramyeon", "UPDATE 3 2 korean", "UPDATE 3 3 noodle", "UPDATE 3 4 instant", "UPDATE 4 1 pasta", "UPDATE 4 2 italian", "UPDATE 4 3 noodle", "MERGE 1 2 1 3", "MERGE 1 3 1 4", "UPDATE korean hansik", "UPDATE 1 3 group", "UNMERGE 1 4", "PRINT 1 3", "PRINT 1 4"]))
 
