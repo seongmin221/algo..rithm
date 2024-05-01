@@ -6,6 +6,10 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3E9CA7F72BD7B42C00D7FD70 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CA7F62BD7B42C00D7FD70 /* main.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3E5368B429B1CB25000CBD48 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -25,6 +29,7 @@
 		3E5368C129B1CBC4000CBD48 /* 어항정리.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "어항정리.swift"; sourceTree = "<group>"; };
 		3E5368D029BB1226000CBD48 /* 10869-사칙연산.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "10869-사칙연산.swift"; sourceTree = SOURCE_ROOT; };
 		3E5368D229BDB910000CBD48 /* 2884-알람 시계.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2884-알람 시계.swift"; sourceTree = "<group>"; };
+		3E9CA7F62BD7B42C00D7FD70 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EA69C522B6B6537008AE23B /* 30885-phi squared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30885-phi squared.swift"; sourceTree = "<group>"; };
 		3EA69C542B6B93EB008AE23B /* 30876-Tren Del Fin Del Mundo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30876-Tren Del Fin Del Mundo.swift"; sourceTree = "<group>"; };
 		3EA69C562B6B9C26008AE23B /* 1697-숨바꼭질.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1697-숨바꼭질.swift"; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 				3EE425242ACBC1CB00DE5FA5 /* 1 - 튼튼한 기본기 */,
 				3EE1A9172AA1834700021F9D /* 삼성SW역량기출 */,
 				3E5368C029B1CB32000CBD48 /* 수학 */,
+				3E9CA7F62BD7B42C00D7FD70 /* main.swift */,
 			);
 			path = Swift_BOJ;
 			sourceTree = "<group>";
@@ -170,7 +176,7 @@
 				TargetAttributes = {
 					3E5368B529B1CB25000CBD48 = {
 						CreatedOnToolsVersion = 14.2;
-						LastSwiftMigration = 1520;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -197,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E9CA7F72BD7B42C00D7FD70 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

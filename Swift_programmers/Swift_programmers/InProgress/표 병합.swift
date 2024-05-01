@@ -7,6 +7,448 @@
 
 import Foundation
 
+class Trie {
+    var contents: [Character: Trie] = [:]
+    var isLast: Bool = false
+}
+
+extension Trie {
+    func insert(_ chars: [Character]) {
+        var temp = self
+        for char in chars {
+            if temp.contents[char] == nil { temp.contents[char] = .init() }
+            temp = temp.contents[char]!
+        }
+        temp.isLast = true
+    }
+    
+    func countMatching(_ chars: [Character]) -> Int {
+        // find matching chars
+        var trie = self
+        for char in chars {
+            guard let temp = trie.contents[char] else { return 0 }
+            trie = temp
+        }
+        // dfs
+        var result: Int = 0
+        var needVisit: [Trie] = [trie]
+        while !needVisit.isEmpty {
+            let trie = needVisit.removeLast()
+            if trie.isLast { result += 1 }
+            needVisit += trie.contents.values
+        }
+        return result
+    }
+}
+
+func solution(_ words: [String], _ queries: [String]) -> [Int] {
+    
+    func extractChars(from query: String) -> [Character] {
+        var result: [Character] = []
+        
+        for c in query {
+            guard c != "?" else { continue }
+            result.append(c)
+        }
+        
+        if query.first == "?" { return result.reversed() }
+        else { return result }
+    }
+    
+    var chars: [[Character]] = []
+    for word in words { chars.append(word.map { $0 }) }
+    
+    var trieMap: [Int: Trie] = [:]
+    for char in chars {
+        let length = char.count
+        
+        if trieMap[length] == nil { trieMap[length] = .init() }
+        trieMap[length]!.insert(char)
+        trieMap[length]!.insert(char.reversed())
+    }
+    
+    var result: [Int] = []
+    for query in queries {
+        let length = query.count
+        guard let trie = trieMap[length] else {
+            result.append(0)
+            continue
+        }
+        let queryChars = extractChars(from: query)
+        result.append(trie.countMatching(queryChars))
+    }
+    
+    return result
+}
+
+
+
+
+//struct Queue<T> {
+//    var head: Int = 0
+//    var contents: [T] = []
+//
+//    init(_ contents: [T]) {
+//        self.contents = contents
+//    }
+//
+//    var isEmpty: Bool { head == contents.count }
+//}
+//
+//extension Queue {
+//    mutating func push(_ values: [T]) {
+//        contents += values
+//    }
+//
+//    mutating func pop() -> T {
+//        let value = contents[head]
+//        head += 1
+//        return value
+//    }
+//}
+//
+//final class Trie {
+//    var isLast: Bool = false
+//    var charMap: [Character: Trie] = [:]
+//}
+//
+//extension Trie {
+//    func insert(_ word: String) {
+//        let chars = word.map { $0 }
+//        var temp = self
+//        for char in chars {
+//            if temp.charMap[char] == nil {
+//                temp.charMap[char] = .init()
+//            }
+//            temp = temp.charMap[char]!
+//        }
+//        temp.isLast = true
+//    }
+//
+//    func countFromRoot(_ chars: [Character]) -> Int {
+//        // move downwards
+//        var node = self
+//        for char in chars {
+//            if node.charMap[char] == nil { return 0 }
+//            node = node.charMap[char]!
+//        }
+//        // bfs
+//        var result: Int = 0
+//
+//        var needVisit: [Trie] = [node]
+//        while !needVisit.isEmpty {
+//            let node = needVisit.removeLast()
+//            if node.isLast { result += 1; continue }
+//            needVisit += node.charMap.values
+//        }
+//        return result
+//    }
+//
+//    func countFromBottom(_ chars: [Character], _ wildCount: Int) -> Int {
+//        // move downwards
+//
+//        func dfs(_ node: Trie, _ depth: Int) -> Int {
+//            var result = 0
+//
+//            if depth == wildCount {
+//                var node = node
+//                for c in chars {
+//                    if node.charMap[c] == nil { return 0 }
+//                    else { node = node.charMap[c]! }
+//                }
+//                return node.isLast ? 1 : 0
+//            }
+//
+//            for node in node.charMap.values {
+//                result += dfs(node, depth + 1)
+//            }
+//            return result
+//        }
+//
+//        return dfs(self, 0)
+//    }
+//}
+//
+//func solution(_ words: [String], _ queries: [String]) -> [Int] {
+//
+//    var trieTable: [Int: Trie] = [:]
+//    for word in words {
+//        let count = word.count
+//        if trieTable[count] == nil { trieTable[count] = .init() }
+//        trieTable[count]!.insert(word)
+//    }
+//
+//    func splitWord(_ word: String) -> (chars: [Character], wildCount: Int) {
+//        // split word and count ?
+//        var chars: [Character] = []
+//        var wildCount = 0
+//        for c in word {
+//            if c == "?" { wildCount += 1 }
+//            else { chars.append(c) }
+//        }
+//        return (chars, wildCount)
+//    }
+//
+//    var result: [Int] = []
+//    for query in queries {
+//        guard let trie = trieTable[query.count] else {
+//            result.append(0)
+//            continue
+//        }
+//
+//        let (chars, wildCount) = splitWord(query)
+//        if query.last! == "?" { result.append(trie.countFromRoot(chars)) }
+//        else { result.append(trie.countFromBottom(chars, wildCount)) }
+//    }
+//
+//    return result
+//}
+
+//import Foundation
+//
+//final class Trie {
+//    var isLast: Bool = false
+//    var charMap: [Character: Trie] = [:]
+//}
+//
+//extension Trie {
+//    func insert(_ word: String) {
+//        let chars = word.map { $0 }
+//        var temp = self
+//        for char in chars {
+//            if temp.charMap[char] == nil {
+//                temp.charMap[char] = .init()
+//            }
+//            temp = temp.charMap[char]!
+//        }
+//        temp.isLast = true
+//    }
+//
+//    func countFromRoot(_ chars: [Character]) -> Int {
+//        // move downwards
+//        var node = self
+//        for char in chars {
+//            if node.charMap[char] == nil { return 0 }
+//            node = node.charMap[char]!
+//        }
+//        // dfs
+//        func countMatching(from node: Trie, depth: Int) -> Int {
+//            var result: Int = 0
+//
+//            var needVisit: [Trie] = [node]
+//            while !needVisit.isEmpty {
+//                let node = needVisit.removeLast()
+//                if node.charMap.isEmpty {
+//                    result += 1
+//                    continue
+//                }
+//                needVisit += node.charMap.values
+//            }
+//
+//            return result
+//        }
+//
+//        return countMatching(from: node, depth: 0)
+//    }
+//
+//    func countFromBottom(_ chars: [Character], _ wildCount: Int) -> Int {
+//        // move downwards
+//        func dfs(_ node: Trie, _ depth: Int) -> Int {
+//            var result = 0
+//
+//            if depth == wildCount {
+//                var node = node
+//                for c in chars {
+//                    if node.charMap[c] == nil { return 0 }
+//                    else { node = node.charMap[c]! }
+//                }
+//                return node.isLast ? 1 : 0
+//            }
+//
+//            for node in node.charMap.values {
+//                result += dfs(node, depth + 1)
+//            }
+//            return result
+//        }
+//
+//        return dfs(self, 0)
+//    }
+//}
+//
+//func solution(_ words: [String], _ queries: [String]) -> [Int] {
+//
+//    var trieTable: [Int: Trie] = [:]
+//    for word in words {
+//        let count = word.count
+//        if trieTable[count] == nil { trieTable[count] = .init() }
+//        trieTable[count]!.insert(word)
+//    }
+//
+//    func splitWord(_ word: String) -> (chars: [Character], wildCount: Int) {
+//        // split word and count ?
+//        var chars: [Character] = []
+//        var wildCount = 0
+//        for c in word {
+//            if c == "?" { wildCount += 1 }
+//            else { chars.append(c) }
+//        }
+//        return (chars, wildCount)
+//    }
+//
+//    var result: [Int] = []
+//    for query in queries {
+//        guard let trie = trieTable[query.count] else {
+//            result.append(0)
+//            continue
+//        }
+//
+//        let (chars, wildCount) = splitWord(query)
+//        if query.first! == "?" { result.append(trie.countFromBottom(chars, wildCount)) }
+//        else { result.append(trie.countFromRoot(chars)) }
+//    }
+//
+//    return result
+//}
+
+//print(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"], ["fro??", "????o", "fr???", "fro???", "pro?"]))
+
+
+//import Foundation
+//
+//final class Trie {
+//    var isLast: Bool = false
+//    var charMap: [Character: Trie] = [:]
+//}
+//
+//extension Trie {
+//    func insert(_ word: String) {
+//        let chars = word.map { $0 }
+//        var temp = self
+//        for char in chars {
+//            if temp.charMap[char] == nil {
+//                temp.charMap[char] = .init()
+//            }
+//            temp = temp.charMap[char]!
+//        }
+//        temp.isLast = true
+//    }
+//
+//    func countFromRoot(_ chars: [Character], _ wildCount: Int) -> Int {
+//        // move downwards
+//        var node = self
+//        for char in chars {
+//            if node.charMap[char] == nil { return 0 }
+//            node = node.charMap[char]!
+//        }
+//        // dfs
+//        func countMatching(from node: Trie, depth: Int) -> Int {
+//            var result: Int = 0
+//            if depth > wildCount { return 0 }
+//            if node.isLast { return depth == wildCount ? 1 : 0 }
+//
+//            for child in node.charMap.values {
+//                result += countMatching(from: child, depth: depth + 1)
+//            }
+//            return result
+//        }
+//
+//        return countMatching(from: node, depth: 0)
+//    }
+//
+//    func countFromBottom(_ chars: [Character], _ wildCount: Int) -> Int {
+//        // move downwards
+//        func dfs(_ node: Trie, _ depth: Int) -> Int {
+//            var result = 0
+//
+//            if depth > wildCount || node.isLast { return 0 }
+//
+//            if depth == wildCount {
+//                var node = node
+//                for c in chars {
+//                    if node.charMap[c] == nil { return 0 }
+//                    else { node = node.charMap[c]! }
+//                }
+//                return node.isLast ? 1 : 0
+//            }
+//
+//            for node in node.charMap.values {
+//                result += dfs(node, depth + 1)
+//            }
+//            return result
+//        }
+//
+//        return dfs(self, 0)
+//    }
+//}
+//
+//func solution(_ words: [String], _ queries: [String]) -> [Int] {
+//
+//     var wordsTable: [Int: [String]] = [:]
+//     for word in words {
+//         let count = word.count
+//         if wordsTable[count] == nil { wordsTable[count] = [word] }
+//         else { wordsTable[count]!.append(word) }
+//     }
+//
+//    func splitWord(_ word: String) -> (chars: [Character], wildCount: Int) {
+//        // split word and count ?
+//        var chars: [Character] = []
+//        var wildCount = 0
+//        for c in word {
+//            if c == "?" { wildCount += 1 }
+//            else { chars.append(c) }
+//        }
+//        return (chars, wildCount)
+//    }
+//
+//
+//    let trie: Trie = .init()
+//    for word in words {
+//        trie.insert(word)
+//    }
+//
+//
+//    var result: [Int] = []
+//    for query in queries {
+//        let (chars, wildCount) = splitWord(query)
+//
+//        if wildCount == query.count {
+//            result.append(words.filter({ $0.count == chars.count }).count)
+//            continue
+//        }
+//
+//        if query.first! == "?" { result.append(trie.countFromBottom(chars, wildCount)) }
+//        else { result.append(trie.countFromRoot(chars, wildCount)) }
+//    }
+//
+//    return result
+//}
+
+
+
+//struct Queue<T> {
+//    var head: Int = 0
+//    var contents: [T] = []
+//
+//    init(_ contents: [T]) {
+//        self.contents = contents
+//    }
+//
+//    var isEmpty: Bool { head == contents.count }
+//}
+//
+//extension Queue {
+//    mutating func push(_ values: [T]) {
+//        contents += values
+//    }
+//
+//    mutating func pop() -> T {
+//        let value = contents[head]
+//        head += 1
+//        return value
+//    }
+//}
+
 //struct Position: Hashable {
 //    let r: Int
 //    let c: Int
@@ -412,93 +854,93 @@ import Foundation
 //    return result
 //}
 
-func solution(_ commands: [String]) -> [String] {
-    
-    var valueMap: [[String]] = .init(repeating: .init(repeating: "EMPTY", count: 51),
-                                     count: 51)
-    // mergeMap[r1][c1] = (r2, c2) -> (r1, c1)은 (r2, c2)에 머지되어 있음
-    var mergeMap: [[(r: Int, c: Int)]] = .init(repeating: .init(repeating: (0, 0), count: 51),
-                                               count: 51)
-    for r in 1...50 { for c in 1...50 { mergeMap[r][c] = (r, c) } }
-    
-    // actual commands
-    
-    func update(r: Int, c: Int, value: String) {
-        var (pr, pc) = mergeMap[r][c]
-        (pr, pc) = mergeMap[pr][pc]
-        valueMap[pr][pc] = value
-    }
-    
-    func update(value1: String, value2: String) {
-        for r in 1...50 {
-            for c in 1...50 {
-                guard valueMap[r][c] == value1 else { continue }
-                valueMap[r][c] = value2
-            }
-        }
-    }
-    
-    func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
-        let (pr1, pc1) = mergeMap[r1][c1]
-        let (pr2, pc2) = mergeMap[r2][c2]
-        
-        if valueMap[pr1][pc1] == "EMPTY" {
-            valueMap[pr1][pc1] = valueMap[pr2][pc2]
-        }
-        for r in 1...50 {
-            for c in 1...50 {
-                if mergeMap[r][c] == (pr1, pc1) {
-                    valueMap[r][c] = valueMap[pr1][pc1]
-                }
-                else if mergeMap[r][c] == (pr2, pc2) {
-                    mergeMap[r][c] = (pr1, pc1)
-                    valueMap[r][c] = valueMap[pr1][pc1]
-                }
-            }
-        }
-    }
-    
-    func unmerge(r: Int, c: Int) {
-        let (pr, pc) = mergeMap[r][c]
-        let value = valueMap[pr][pc]
-        
-        for r in 1...50 {
-            for c in 1...50 {
-                let (tr, tc) = mergeMap[r][c]
-                guard tr == pr && tc == pc else { continue }
-                mergeMap[r][c] = (r, c)
-                valueMap[r][c] = "EMPTY"
-            }
-        }
-        valueMap[r][c] = value
-    }
-    
-    var result: [String] = []
-    func printOp(r: Int, c: Int) {
-        let (pr, pc) = mergeMap[r][c]
-        result.append(valueMap[pr][pc])
-    }
-    
-    
-    for command in commands {
-        let cmd = command.split(separator: " ").map { String($0) }
-        switch cmd[0] {
-        case "UPDATE":
-            if cmd.count == 4 { update(r: Int(cmd[1])!, c: Int(cmd[2])!, value: cmd[3]) }
-            else { update(value1: cmd[1], value2: cmd[2]) }
-        case "MERGE":
-            merge(r1: Int(cmd[1])!, c1: Int(cmd[2])!, r2: Int(cmd[3])!, c2: Int(cmd[4])!)
-        case "UNMERGE":
-            unmerge(r: Int(cmd[1])!, c: Int(cmd[2])!)
-        case "PRINT":
-            printOp(r: Int(cmd[1])!, c: Int(cmd[2])!)
-        default: continue
-        }
-    }
-    
-    
-    return result
-}
+//func solution(_ commands: [String]) -> [String] {
+//    
+//    var valueMap: [[String]] = .init(repeating: .init(repeating: "EMPTY", count: 51),
+//                                     count: 51)
+//    // mergeMap[r1][c1] = (r2, c2) -> (r1, c1)은 (r2, c2)에 머지되어 있음
+//    var mergeMap: [[(r: Int, c: Int)]] = .init(repeating: .init(repeating: (0, 0), count: 51),
+//                                               count: 51)
+//    for r in 1...50 { for c in 1...50 { mergeMap[r][c] = (r, c) } }
+//    
+//    // actual commands
+//    
+//    func update(r: Int, c: Int, value: String) {
+//        var (pr, pc) = mergeMap[r][c]
+//        (pr, pc) = mergeMap[pr][pc]
+//        valueMap[pr][pc] = value
+//    }
+//    
+//    func update(value1: String, value2: String) {
+//        for r in 1...50 {
+//            for c in 1...50 {
+//                guard valueMap[r][c] == value1 else { continue }
+//                valueMap[r][c] = value2
+//            }
+//        }
+//    }
+//    
+//    func merge(r1: Int, c1: Int, r2: Int, c2: Int) {
+//        let (pr1, pc1) = mergeMap[r1][c1]
+//        let (pr2, pc2) = mergeMap[r2][c2]
+//        
+//        if valueMap[pr1][pc1] == "EMPTY" {
+//            valueMap[pr1][pc1] = valueMap[pr2][pc2]
+//        }
+//        for r in 1...50 {
+//            for c in 1...50 {
+//                if mergeMap[r][c] == (pr1, pc1) {
+//                    valueMap[r][c] = valueMap[pr1][pc1]
+//                }
+//                else if mergeMap[r][c] == (pr2, pc2) {
+//                    mergeMap[r][c] = (pr1, pc1)
+//                    valueMap[r][c] = valueMap[pr1][pc1]
+//                }
+//            }
+//        }
+//    }
+//    
+//    func unmerge(r: Int, c: Int) {
+//        let (pr, pc) = mergeMap[r][c]
+//        let value = valueMap[pr][pc]
+//        
+//        for r in 1...50 {
+//            for c in 1...50 {
+//                let (tr, tc) = mergeMap[r][c]
+//                guard tr == pr && tc == pc else { continue }
+//                mergeMap[r][c] = (r, c)
+//                valueMap[r][c] = "EMPTY"
+//            }
+//        }
+//        valueMap[r][c] = value
+//    }
+//    
+//    var result: [String] = []
+//    func printOp(r: Int, c: Int) {
+//        let (pr, pc) = mergeMap[r][c]
+//        result.append(valueMap[pr][pc])
+//    }
+//    
+//    
+//    for command in commands {
+//        let cmd = command.split(separator: " ").map { String($0) }
+//        switch cmd[0] {
+//        case "UPDATE":
+//            if cmd.count == 4 { update(r: Int(cmd[1])!, c: Int(cmd[2])!, value: cmd[3]) }
+//            else { update(value1: cmd[1], value2: cmd[2]) }
+//        case "MERGE":
+//            merge(r1: Int(cmd[1])!, c1: Int(cmd[2])!, r2: Int(cmd[3])!, c2: Int(cmd[4])!)
+//        case "UNMERGE":
+//            unmerge(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        case "PRINT":
+//            printOp(r: Int(cmd[1])!, c: Int(cmd[2])!)
+//        default: continue
+//        }
+//    }
+//    
+//    
+//    return result
+//}
 
 
 //print(solution(["UPDATE 1 1 menu", "UPDATE 1 2 category", "UPDATE 2 1 bibimbap", "UPDATE 2 2 korean", "UPDATE 2 3 rice", "UPDATE 3 1 ramyeon", "UPDATE 3 2 korean", "UPDATE 3 3 noodle", "UPDATE 3 4 instant", "UPDATE 4 1 pasta", "UPDATE 4 2 italian", "UPDATE 4 3 noodle", "MERGE 1 2 1 3", "MERGE 1 3 1 4", "UPDATE korean hansik", "UPDATE 1 3 group", "UNMERGE 1 4", "PRINT 1 3", "PRINT 1 4"]))
