@@ -34,6 +34,7 @@
 		3E9CA7F62BD7B42C00D7FD70 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EA326522BEC601A0033927D /* 7576-토마토.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "7576-토마토.swift"; sourceTree = "<group>"; };
 		3EA326572BEDB1810033927D /* 1027-고층 건물.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1027-고층 건물.swift"; sourceTree = "<group>"; };
+		3EA326592BF3333D0033927D /* 9663-N-Queen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "9663-N-Queen.swift"; sourceTree = "<group>"; };
 		3EA69C522B6B6537008AE23B /* 30885-phi squared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30885-phi squared.swift"; sourceTree = "<group>"; };
 		3EA69C542B6B93EB008AE23B /* 30876-Tren Del Fin Del Mundo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "30876-Tren Del Fin Del Mundo.swift"; sourceTree = "<group>"; };
 		3EA69C562B6B9C26008AE23B /* 1697-숨바꼭질.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1697-숨바꼭질.swift"; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA326572BEDB1810033927D /* 1027-고층 건물.swift */,
+				3EA326592BF3333D0033927D /* 9663-N-Queen.swift */,
 			);
 			path = 4;
 			sourceTree = "<group>";
