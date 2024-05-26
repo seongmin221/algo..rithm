@@ -27,6 +27,7 @@
 		3E93BC8F2BE3707E005B658F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E93BC972BE3709B005B658F /* 1. Two Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "1. Two Sum.swift"; sourceTree = "<group>"; };
 		3E93BC992BE370A4005B658F /* 2. Add Two Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2. Add Two Numbers.swift"; sourceTree = "<group>"; };
+		3ED09DFB2C02F5F000BD04F2 /* 268. Missing Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "268. Missing Number.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 			children = (
 				3E93BC972BE3709B005B658F /* 1. Two Sum.swift */,
 				3E93BC992BE370A4005B658F /* 2. Add Two Numbers.swift */,
+				3ED09DFB2C02F5F000BD04F2 /* 268. Missing Number.swift */,
 			);
 			path = Solved;
 			sourceTree = "<group>";
