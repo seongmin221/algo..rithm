@@ -269,4 +269,4 @@ func movingPipe1() -> Int {
     return memo[n-1][n-1][0] + memo[n-1][n-1][1] + memo[n-1][n-1][2]
 }
 
-print(movingPipe1())
+//print(movingPipe1())
